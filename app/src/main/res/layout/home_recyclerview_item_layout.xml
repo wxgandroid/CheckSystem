@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:id="@+id/rl_home"
+        android:layout_width="@dimen/m146dp"
+        android:layout_height="@dimen/m98dp"
+        android:layout_margin="@dimen/m10dp">
+
+        <ImageView
+            android:id="@+id/iv_hoe_rlv_item"
+            android:layout_width="@dimen/m40dp"
+            android:layout_height="@dimen/m40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/m20dp" />
+
+        <TextView
+            android:id="@+id/tv_home_rlv_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/m15dp"
+            android:text="条目名称"
+            android:textColor="@color/font_white"
+            android:textSize="@dimen/m18sp" />
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:id="@+id/cb_details_check"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/m59dp"
+            android:text="检测项内容" />
+
+        <Button
+            android:id="@+id/btn_details_check_item_play"
+            style="@style/app_button_green_style"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/m25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/m13dp"
+            android:text="播放" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/app_divide" />
+
+    </RelativeLayout>
+</layout>
+

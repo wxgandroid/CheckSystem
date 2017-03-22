@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">九州车检系统</string>
+    <string name="chelian">九州车联</string>
+    <string name="login_name">登录名</string>
+    <string name="loginn_password">密码</string>
+    <string name="login">登录</string>
+    <string name="now_register">立即注册</string>
+    <string name="forget_password">忘记密码</string>
+    <string name="ip_regist">IP注册</string>
+    <string name="login_phone">手机号</string>
+    <string name="login_vcode">验证码</string>
+    <string name="full_userinfo_title">完善个人信息</string>
+    <string name="bluetooth_no_connected">蓝牙未连接，请连接后点击</string>
+    <string name="check">检测</string>
+    <string name="peijian_qixiuchang">附近汽修厂</string>
+    <string name="not_front">不在车前</string>
+    <string name="yisun_qingdan">易损零件清单</string>
+    <string name="change_price">更换零件参考价:%1$s元 </string>
+    <string name="pinpai_price">品牌零件:%1$s元 </string>
+    <string name="shougongfei">手工费:%1$s元 </string>
+    <string name="yujiyongshi">预计用时:%1$s分钟 </string>
+    <string name="baoxiu">保修: %1$s个月</string>
+    <string name="wenxin_tixing">温馨提醒:价格均为预估参考价，以实际价格为主</string>
+    <string name="possible_destroy">经检测可能出现故障</string>
+    <string name="lingjian_xinghao">型号：%1$s</string>
+    <string name="lingjian_guige">规格：%1$s</string>
+    <string name="yuanchang_price">原厂：%1$s元/质保%2$s</string>
+    <string name="lingjian_pinpai_price">品牌:%1$s元/质保%2$s个月</string>
+    <string name="yuji_gonshi">预计工时:%1$s分钟/保修%2$s个月</string>
+    <string name="lingjian_shougongfei">手工费：4S维修店%1$s  B类厂维修店%2$s元</string>
+    <string name="lingjian_introduce">介绍</string>
+    <string name="recommend_factory">推荐商家:%s</string>
+    <string name="service_time">服务时间：%s</string>
+    <string name="pinpai_name">品牌：%1$s元/质保%2$s</string>
+    <string name="tuijiancankaojia">推荐参考价：%s</string>
+    <string name="position_tag">position_tag</string>
+    <string name="pinpailingjian">品牌零件：%s</string>
+
+    <!--页面顶部的标题名称-->
+    <string name="check_checking">检测中</string>
+    <string name="check_result">检测结果</string>
+    <string name="cars_knowledge">汽车知识</string>
+    <string name="factory_introduce">介绍</string>
+
+    <!--检测页面文字-->
+    <string name="checking_bluetooth">检测蓝牙连接...</string>
+    <string name="bluetooth_connect">蓝牙连接成功，正在读取数据...</string>
+</resources>

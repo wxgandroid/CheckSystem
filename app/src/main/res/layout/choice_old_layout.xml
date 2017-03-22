@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/fl_choice_sex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#44000000" />
+
+        <TextView
+            android:id="@+id/tv_choice_young"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m50dp"
+            android:background="#ffffff"
+            android:gravity="center"
+            android:text="青年" />
+
+        <View style="@style/app_divide_style" />
+
+        <TextView
+            android:id="@+id/tv_choice_zhongnian"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m50dp"
+            android:background="#ffffff"
+            android:gravity="center"
+            android:text="中年" />
+
+        <View style="@style/app_divide_style" />
+
+        <TextView
+            android:id="@+id/tv_choice_old"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m50dp"
+            android:background="#ffffff"
+            android:gravity="center"
+            android:text="老年" />
+
+        <View style="@style/app_divide_style" />
+
+        <TextView
+            android:id="@+id/tv_choice_old_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m50dp"
+            android:background="#ffffff"
+            android:gravity="center"
+            android:text="取消" />
+
+
+    </LinearLayout>
+
+</layout>

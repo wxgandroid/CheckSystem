@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/include_lingjian_top_title"
+            layout="@layout/app_title_layout" />
+
+        <ImageView
+            android:id="@+id/iv_lingjian_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m312dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tv_lingjian_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m45dp"
+            android:layout_marginLeft="@dimen/m10dp"
+            android:gravity="center_vertical"
+            android:text="蓄电池"
+            android:textSize="@dimen/m16sp" />
+
+        <View style="@style/app_divide_style" />
+
+        <TextView
+            android:id="@+id/tv_lingjian_introduce"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="零件的介绍信息"
+            android:textSize="@dimen/m14sp" />
+
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <include
+            android:id="@+id/include_zixiu"
+            layout="@layout/zixiu_layout" />
+
+
+    </LinearLayout>
+
+</layout>

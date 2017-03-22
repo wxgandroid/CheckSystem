@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/include_full_userinfo"
+            layout="@layout/app_title_layout" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <View
+                    style="@style/app_divide_style"
+                    android:layout_marginTop="@dimen/m10dp" />
+
+                <LinearLayout style="@style/full_userinfo_ll_style">
+
+                    <TextView
+                        style="@style/full_userinfo_tv_style"
+                        android:text="姓名" />
+
+                    <EditText
+                        android:id="@+id/et_full_userinfo_name"
+                        style="@style/full_userinfo_et_style"
+                        android:hint="请输入您的真实姓名" />
+                </LinearLayout>
+
+                <View
+                    style="@style/app_divide_style"
+                    android:layout_marginLeft="@dimen/m13dp"
+                    android:layout_marginRight="@dimen/m13dp" />
+
+
+                <LinearLayout style="@style/full_userinfo_ll_style">
+
+                    <TextView
+                        style="@style/full_userinfo_tv_style"
+                        android:text="密码" />
+
+                    <EditText
+                        android:inputType="textPassword"
+                        android:id="@+id/et_full_userinfo_password"
+                        style="@style/full_userinfo_et_style"
+                        android:hint="请输入密码" />
+                </LinearLayout>
+
+                <View
+                    style="@style/app_divide_style"
+                    android:layout_marginLeft="@dimen/m13dp"
+                    android:layout_marginRight="@dimen/m13dp" />
+
+                <LinearLayout style="@style/full_userinfo_ll_style">
+
+                    <TextView
+                        style="@style/full_userinfo_tv_style"
+                        android:text="手机号" />
+
+                    <EditText
+                        android:id="@+id/et_full_userinfo_phone_num"
+                        style="@style/full_userinfo_et_style"
+                        android:hint="请输入您的手机号码" />
+                </LinearLayout>
+
+                <View
+                    style="@style/app_divide_style"
+                    android:layout_marginLeft="@dimen/m13dp"
+                    android:layout_marginRight="@dimen/m13dp" />
+
+                <LinearLayout style="@style/full_userinfo_ll_style">
+
+                    <TextView
+                        style="@style/full_userinfo_tv_style"
+                        android:text="性别" />
+
+                    <TextView
+                        android:id="@+id/tv_full_userinfo_sex"
+                        style="@style/full_userinfo_et_style"
+                        android:hint="请设置您的性别" />
+                </LinearLayout>
+
+                <!--<View-->
+                <!--style="@style/app_divide_style"-->
+                <!--android:layout_marginLeft="@dimen/m13dp"-->
+                <!--android:layout_marginRight="@dimen/m13dp" />-->
+
+                <!--<LinearLayout style="@style/full_userinfo_ll_style">-->
+
+                <!--<TextView-->
+                <!--style="@style/full_userinfo_tv_style"-->
+                <!--android:text="出生日期" />-->
+
+                <!--<TextView-->
+                <!--android:id="@+id/tv_full_userinfo_birth"-->
+                <!--style="@style/full_userinfo_et_style"-->
+                <!--android:hint="点击选择" />-->
+                <!--</LinearLayout>-->
+
+                <View
+                    style="@style/app_divide_style"
+                    android:layout_marginLeft="@dimen/m13dp"
+                    android:layout_marginRight="@dimen/m13dp" />
+
+                <LinearLayout style="@style/full_userinfo_ll_style">
+
+                    <TextView
+                        style="@style/full_userinfo_tv_style"
+                        android:text="所在地" />
+
+                    <EditText
+                        android:id="@+id/et_full_userinfo_address"
+                        style="@style/full_userinfo_et_style"
+                        android:hint="请输入您的所在地址" />
+                </LinearLayout>
+
+                <!--<View-->
+                <!--style="@style/app_divide_style"-->
+                <!--android:layout_marginLeft="@dimen/m13dp"-->
+                <!--android:layout_marginRight="@dimen/m13dp" />-->
+
+                <!--<LinearLayout style="@style/full_userinfo_ll_style">-->
+
+                <!--<TextView-->
+                <!--style="@style/full_userinfo_tv_style"-->
+                <!--android:text="驾驶证号" />-->
+
+                <!--<EditText-->
+                <!--android:id="@+id/et_full_userinfo_drivecode"-->
+                <!--style="@style/full_userinfo_et_style"-->
+                <!--android:hint="请输入您的驾驶证号" />-->
+                <!--</LinearLayout>-->
+
+                <View
+                    style="@style/app_divide_style"
+                    android:layout_marginLeft="@dimen/m13dp"
+                    android:layout_marginRight="@dimen/m13dp" />
+
+                <LinearLayout style="@style/full_userinfo_ll_style">
+
+                    <TextView
+                        style="@style/full_userinfo_tv_style"
+                        android:text="车辆颜色" />
+
+                    <TextView
+                        android:id="@+id/tv_full_userinfo_color"
+                        style="@style/full_userinfo_et_style"
+                        android:hint="请选择您的车辆颜色" />
+                </LinearLayout>
+
+                <View
+                    style="@style/app_divide_style"
+                    android:layout_marginLeft="@dimen/m13dp"
+                    android:layout_marginRight="@dimen/m13dp" />
+
+                <LinearLayout style="@style/full_userinfo_ll_style">
+
+                    <TextView
+                        style="@style/full_userinfo_tv_style"
+                        android:text="车辆品牌" />
+
+                    <TextView
+                        android:id="@+id/tv_full_userinfo_carbrand"
+                        style="@style/full_userinfo_et_style"
+                        android:hint="请选择您的车辆品牌" />
+                </LinearLayout>
+
+                <View
+                    style="@style/app_divide_style"
+                    android:layout_marginLeft="@dimen/m13dp"
+                    android:layout_marginRight="@dimen/m13dp" />
+
+                <LinearLayout style="@style/full_userinfo_ll_style">
+
+                    <TextView
+                        style="@style/full_userinfo_tv_style"
+                        android:text="车辆型号" />
+
+                    <TextView
+                        android:id="@+id/tv_full_userinfo_car_id"
+                        style="@style/full_userinfo_et_style"
+                        android:hint="请选择您的车辆型号" />
+                </LinearLayout>
+
+
+                <View
+                    style="@style/app_divide_style"
+                    android:layout_marginLeft="@dimen/m13dp"
+                    android:layout_marginRight="@dimen/m13dp" />
+
+                <LinearLayout style="@style/full_userinfo_ll_style">
+
+                    <TextView
+                        style="@style/full_userinfo_tv_style"
+                        android:text="年龄" />
+
+                    <TextView
+                        android:id="@+id/tv_full_userinfo_age"
+                        style="@style/full_userinfo_et_style"
+                        android:hint="请输入您的年龄" />
+                </LinearLayout>
+
+                <View
+                    style="@style/app_divide_style"
+                    android:layout_marginLeft="@dimen/m13dp"
+                    android:layout_marginRight="@dimen/m13dp" />
+
+                <LinearLayout style="@style/full_userinfo_ll_style">
+
+                    <TextView
+                        style="@style/full_userinfo_tv_style"
+                        android:text="年代" />
+
+                    <EditText
+                        android:id="@+id/et_full_userinfo_car_date"
+                        style="@style/full_userinfo_et_style"
+                        android:hint="请输入您的爱车年龄" />
+                </LinearLayout>
+
+
+                <View
+                    style="@style/app_divide_style"
+                    android:layout_marginLeft="@dimen/m13dp"
+                    android:layout_marginRight="@dimen/m13dp" />
+
+                <LinearLayout style="@style/full_userinfo_ll_style">
+
+                    <TextView
+                        style="@style/full_userinfo_tv_style"
+                        android:text="行驶里程" />
+
+                    <EditText
+                        android:id="@+id/et_full_userinfo_car_distance"
+                        style="@style/full_userinfo_et_style"
+                        android:hint="请输入您的爱车行驶里程" />
+                </LinearLayout>
+
+
+                <View
+                    style="@style/app_divide_style"
+                    android:layout_marginLeft="@dimen/m13dp"
+                    android:layout_marginRight="@dimen/m13dp" />
+
+
+                <LinearLayout style="@style/full_userinfo_ll_style">
+
+                    <TextView
+                        style="@style/full_userinfo_tv_style"
+                        android:text="性格" />
+
+                    <EditText
+                        android:id="@+id/et_full_userinfo_xingge"
+                        style="@style/full_userinfo_et_style"
+                        android:hint="请输入您的性格" />
+                </LinearLayout>
+
+                <View
+                    style="@style/app_divide_style"
+                    android:layout_marginLeft="@dimen/m13dp"
+                    android:layout_marginRight="@dimen/m13dp" />
+
+                <LinearLayout style="@style/full_userinfo_ll_style">
+
+                    <TextView
+                        style="@style/full_userinfo_tv_style"
+                        android:text="爱好" />
+
+                    <EditText
+                        android:id="@+id/et_full_userinfo_hobby"
+                        style="@style/full_userinfo_et_style"
+                        android:hint="请输入您的爱好" />
+                </LinearLayout>
+
+                <View
+                    style="@style/app_divide_style"
+                    android:layout_marginLeft="@dimen/m13dp"
+                    android:layout_marginRight="@dimen/m13dp" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btn_full_userinfo"
+                    style="@style/app_button_green_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/m15dp"
+                    android:text="确定" />
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+</layout>
+
+

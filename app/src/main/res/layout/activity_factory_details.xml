@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_factory_photos"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m260dp"
+            android:src="@drawable/ic_launcher" />
+
+        <include
+            android:id="@+id/include_factory_details"
+            layout="@layout/app_title_layout" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/iv_factory_photos"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m15dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_factory_details_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/m13dp"
+                    android:text="推荐商家：宝德汽修厂"
+                    android:textSize="@dimen/m16sp" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <RatingBar
+                    android:id="@+id/rb_factory_details_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/m20dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/m10dp"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:progressDrawable="@drawable/factory_rating_bar_layer"
+                    android:rating="3" />
+            </LinearLayout>
+
+            <View
+                style="@style/app_divide_style"
+                android:layout_marginTop="@dimen/m15dp" />
+
+            <TextView
+                android:id="@+id/tv_factory_details_intro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/m15dp"
+                android:layout_marginRight="@dimen/m15dp"
+                android:layout_marginTop="@dimen/m9dp"
+                android:text="汽修厂的相关介绍汽修厂的相关介绍汽修厂的相关介绍汽修厂的相关介绍汽修厂的相关介绍汽修厂的相关介绍汽修厂的相关介绍汽修厂的相关介绍汽修厂的相关介绍汽修厂的相关介绍"
+                android:textSize="@dimen/m14sp" />
+
+            <TextView
+                android:id="@+id/tv_factory_details_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/m15dp"
+                android:layout_marginTop="@dimen/m9dp"
+                android:text="服务时间：全天"
+                android:textColor="@color/font_green"
+                android:textSize="@dimen/m16sp" />
+
+            <View
+                style="@style/app_divide_style"
+                android:layout_marginTop="@dimen/m10dp" />
+
+            <TextView
+                android:id="@+id/tv_factory_details_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/m17dp"
+                android:layout_marginTop="@dimen/m15dp"
+                android:drawableLeft="@drawable/factory_phone_icon"
+                android:drawablePadding="@dimen/m10dp"
+                android:gravity="center"
+                android:text="010-66661111" />
+
+            <TextView
+                android:id="@+id/tv_factory_details_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/m17dp"
+                android:layout_marginTop="@dimen/m25dp"
+                android:drawableLeft="@drawable/factory_address_icon"
+                android:drawablePadding="@dimen/m10dp"
+                android:gravity="center"
+                android:text="田村路68号" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btn_cankao_price"
+                style="@style/app_button_green_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/m10dp"
+                android:text="维修参考价格" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</layout>
+

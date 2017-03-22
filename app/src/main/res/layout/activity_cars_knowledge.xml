@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/include_cars_knowledge"
+            layout="@layout/app_title_layout" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rlv_cars_knowledge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/include_cars_knowledge" />
+
+        <EditText
+            android:id="@+id/et_click_search"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m50dp"
+            android:layout_below="@+id/include_cars_knowledge"
+            android:layout_marginLeft="@dimen/m10dp"
+            android:layout_marginRight="@dimen/m10dp"
+            android:layout_marginTop="@dimen/m10dp"
+            android:background="#ffffff"
+            android:drawableLeft="@drawable/car_knowledge_search_icon"
+            android:gravity="center_vertical"
+            android:hint="点击查询"
+            android:paddingLeft="@dimen/m5dp" />
+
+    </RelativeLayout>
+</layout>
+

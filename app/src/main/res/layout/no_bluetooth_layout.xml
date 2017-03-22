@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m370dp"
+            android:background="@drawable/no_bluetooth_bg">
+
+            <LinearLayout
+                android:layout_width="@dimen/m326dp"
+                android:layout_height="@dimen/m156dp"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/m26dp"
+                    android:layout_height="@dimen/m26dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/no_bluetooth_warn_logo" />
+
+                <TextView
+                    android:id="@+id/tv_guzhang_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/m9dp"
+                    android:text="@string/bluetooth_no_connected"
+                    android:textColor="#ff6263"
+                    android:textSize="@dimen/m20sp" />
+
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btn_check"
+            style="@style/app_button_green_style"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m45dp"
+            android:layout_margin="@dimen/m10dp"
+            android:text="@string/check" />
+
+        <Button
+            android:id="@+id/btn_near_qixiuchang"
+            style="@style/app_button_green_style"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m45dp"
+            android:layout_marginLeft="@dimen/m10dp"
+            android:layout_marginRight="@dimen/m10dp"
+            android:text="@string/peijian_qixiuchang" />
+
+        <Button
+            android:id="@+id/btn_not_front"
+            style="@style/app_button_green_style"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m45dp"
+            android:layout_margin="@dimen/m10dp"
+            android:text="@string/not_front" />
+
+
+    </LinearLayout>
+
+</layout>

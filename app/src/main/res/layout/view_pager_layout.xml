@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/m14dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/m19dp"
+            android:text="@string/possible_destroy"
+            android:textColor="@color/font_black"
+            android:textSize="@dimen/m16sp" />
+
+        <TextView
+            android:id="@+id/tv_destroy_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/m4dp"
+            android:layout_marginTop="@dimen/m17dp"
+            android:text="蓄电池损坏"
+            android:textColor="@color/font_pink"
+            android:textSize="@dimen/m20sp" />
+
+        <TextView
+            android:id="@+id/tv_change_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/m17dp"
+            android:text="@string/change_price"
+            android:textColor="@color/font_black"
+            android:textSize="@dimen/m16sp" />
+
+        <TextView
+            android:id="@+id/tv_pinpai_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/m6dp"
+            android:text="@string/pinpai_price"
+            android:textColor="@color/font_black"
+            android:textSize="@dimen/m16sp" />
+
+        <TextView
+            android:id="@+id/tv_shougong_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/m6dp"
+            android:text="@string/shougongfei"
+            android:textColor="@color/font_black"
+            android:textSize="@dimen/m16sp" />
+
+        <TextView
+            android:id="@+id/tv_yongshi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/m6dp"
+            android:text="@string/yujiyongshi"
+            android:textColor="@color/font_black"
+            android:textSize="@dimen/m16sp" />
+
+        <TextView
+            android:id="@+id/tv_baoxiu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/m6dp"
+            android:text="@string/baoxiu"
+            android:textColor="@color/font_black"
+            android:textSize="@dimen/m16sp" />
+    </LinearLayout>
+
+</layout>

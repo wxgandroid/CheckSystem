@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_lingjian_details_pic"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m150dp"
+            android:src="@drawable/ic_launcher" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m46dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_lingjian_details_xinghao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/m30dp"
+                android:layout_weight="1"
+                android:text="型号"
+                android:textSize="@dimen/m16sp" />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/app_divide" />
+
+            <TextView
+                android:id="@+id/tv_lingjian_details_guige"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/m5dp"
+                android:layout_weight="1"
+                android:text="规格"
+                android:textSize="@dimen/m16sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m10dp"
+            android:background="@color/app_divide" />
+
+
+        <TextView
+            android:id="@+id/tv_lingjian_details_yuanchang_price_time"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m50dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/m12dp"
+            android:drawableLeft="@drawable/guzhang_details_price"
+            android:drawablePadding="@dimen/m12dp"
+            android:gravity="center_vertical"
+            android:text="原厂："
+            android:textSize="@dimen/m16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m1dp"
+            android:background="@color/app_divide" />
+
+        <TextView
+            android:id="@+id/tv_lingjian_details_pinpai"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m50dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/m40dp"
+            android:gravity="center_vertical"
+            android:text="品牌："
+            android:textSize="@dimen/m16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m1dp"
+            android:background="@color/app_divide" />
+
+        <TextView
+            android:id="@+id/tv_lingjian_details_weixiu_shichang"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m50dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/m12dp"
+            android:drawableLeft="@drawable/guzhang_details_yuji"
+            android:drawablePadding="@dimen/m12dp"
+            android:gravity="center_vertical"
+            android:text="预计工时："
+            android:textSize="@dimen/m16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m1dp"
+            android:background="@color/app_divide" />
+
+        <TextView
+            android:id="@+id/tv_lingjian_details_shougongfei"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m50dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/m12dp"
+            android:drawableLeft="@drawable/guzhang_details_shougong"
+            android:drawablePadding="@dimen/m12dp"
+            android:gravity="center_vertical"
+            android:text="手工费："
+            android:textSize="@dimen/m16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/app_divide" />
+
+        <include
+            android:id="@+id/include_zixiu"
+            layout="@layout/zixiu_layout" />
+    </LinearLayout>
+</layout>
+
+

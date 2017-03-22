@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/m50dp">
+
+        <ImageView
+            android:id="@+id/iv_title_back"
+            android:layout_width="@dimen/m41dp"
+            android:layout_height="@dimen/m37dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/m18dp"
+            android:padding="@dimen/m10dp"
+            android:src="@drawable/back_arrow" />
+
+        <TextView
+            android:id="@+id/tv_title_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="标题"
+            android:textColor="#cc333333"
+            android:textSize="@dimen/m18sp" />
+
+        <ImageView
+            android:id="@+id/iv_title_list"
+            android:layout_width="@dimen/m18dp"
+            android:layout_height="@dimen/m18dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/m18dp"
+            android:src="@drawable/menu_icon"
+            android:visibility="gone" />
+
+        <View
+            style="@style/app_divide_style"
+            android:layout_alignParentBottom="true" />
+
+    </RelativeLayout>
+</layout>

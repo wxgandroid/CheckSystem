@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="40dp"
+    android:layout_gravity="center"
+    android:background="#ff404040"
+    android:orientation="horizontal" >
+
+    <LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:orientation="horizontal">
+    
+	    <TextView
+	        android:id="@+id/message"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="正在加载..." 
+	       	android:textSize="13sp"
+	        android:textColor="#FFFFFF"/>
+	    <!--  
+	    <ImageView
+	        android:id="@+id/spinnerImageView"
+	        android:layout_width="15dp"
+	        android:layout_height="15dp"
+	        android:layout_marginLeft="10dp"
+	        android:background="@anim/common_loadingprogress_spinner" />
+	    -->
+	    <ProgressBar
+            android:id="@+id/widget108"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </ProgressBar>
+    
+    </LinearLayout>
+    
+    <View android:layout_width="1dp" android:layout_height="match_parent" android:background="#ffffff"/>
+    
+    <LinearLayout 
+        android:id="@+id/common_ll_close"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:orientation="horizontal">
+	    
+        <ImageView 
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/common_loadingprogress_closeimg"/>
+        
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,71 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorControlNormal">#ffffff</item>
+    </style>
+
+    <!--填充个人信息界面LinearLayout的样式-->
+    <style name="full_userinfo_ll_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/m45dp</item>
+        <item name="android:layout_marginLeft">@dimen/m13dp</item>
+        <item name="android:layout_marginRight">@dimen/m13dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <!--填充个人信息界面TextView的样式-->
+    <style name="full_userinfo_tv_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#63615a</item>
+        <item name="android:textSize">@dimen/m16sp</item>
+    </style>
+
+    <!--填充个人信息界面EditText的样式-->
+    <style name="full_userinfo_et_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/m13dp</item>
+        <item name="android:layout_marginRight">@dimen/m13dp</item>
+        <item name="android:textSize">@dimen/m14sp</item>
+        <item name="android:textColorHint">#8863615a</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <!--app中分割线的样式-->
+    <style name="app_divide_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">#bbbbbb</item>
+    </style>
+
+    <style name="zixiu_button_style">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">@dimen/m14sp</item>
+        <item name="android:drawablePadding">@dimen/m5dp</item>
+    </style>
+
+    <style name="app_main_text_style">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">@dimen/m15sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="app_button_green_style">
+        <item name="android:textSize">@dimen/m15sp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:background">@drawable/app_button_green_selector</item>
+    </style>
+
+
+</resources>

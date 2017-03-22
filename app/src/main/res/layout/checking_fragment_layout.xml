@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/checking_bg">
+
+        <com.example.windows10.checksystem.customview.WaveView
+            android:id="@+id/wv_checking_fragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/m126dp"
+            app:amplitude="20"
+            app:waterProgress="0"
+            app:waveSize="@dimen/m220dp" />
+
+        <TextView
+            android:textColor="#56cc56"
+            android:textSize="@dimen/m26sp"
+            android:id="@+id/tv_checking_fragment_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/m220dp"
+            android:text="正在检测" />
+
+        <TextView
+            android:id="@+id/tv_checking_fragment_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/wv_checking_fragment"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/m20dp"
+            android:text="您的爱车正在检测中，请稍等！"
+            android:textSize="@dimen/m16sp" />
+
+    </RelativeLayout>
+</layout>

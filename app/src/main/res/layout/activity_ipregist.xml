@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_bg"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="@dimen/m47dp"
+            android:layout_height="@dimen/m65dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/m60dp"
+            android:src="@drawable/main_location_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/m17dp"
+            android:text="@string/chelian"
+            android:textColor="@color/font_white"
+            android:textSize="@dimen/m21sp" />
+
+        <EditText
+            android:id="@+id/et_ip_regist_ip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/m10dp"
+            android:layout_marginRight="@dimen/m10dp"
+            android:layout_marginTop="@dimen/m50dp"
+            android:hint="IP地址"
+            android:textColorHint="#ffffff"
+            android:textColor="@color/font_white"
+            android:textSize="@dimen/m16sp" />
+
+        <EditText
+            android:textColor="@color/font_white"
+            android:id="@+id/et_ip_regist_duankou"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/m10dp"
+            android:layout_marginRight="@dimen/m10dp"
+            android:layout_marginTop="@dimen/m20dp"
+            android:hint="端口号"
+            android:textColorHint="#ffffff"
+            android:textSize="@dimen/m16sp" />
+
+        <Button
+            android:id="@+id/btn_ip_regist"
+            style="@style/app_button_green_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/m10dp"
+            android:layout_marginRight="@dimen/m10dp"
+            android:layout_marginTop="@dimen/m40dp"
+            android:text="确定" />
+
+    </LinearLayout>
+</layout>
+

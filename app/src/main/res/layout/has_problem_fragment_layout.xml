@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_easy_destroy"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m40dp"
+            android:layout_margin="@dimen/m10dp"
+            android:background="@drawable/easy_destroy_line_bg_shape"
+            android:drawableLeft="@drawable/easy_destroy_weixin_icon"
+            android:drawablePadding="@dimen/m10dp"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="@dimen/m15dp"
+            android:text="@string/yisun_qingdan"
+            android:textColor="@color/font_gray"
+            android:textSize="@dimen/m15sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m240dp">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_destroy_list"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m240dp"
+                android:background="#ffffff" />
+
+            <LinearLayout
+                android:id="@+id/ll_destroy_points"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m10dp"
+                android:layout_gravity="bottom"
+                android:gravity="center"
+                android:orientation="horizontal" />
+
+
+        </FrameLayout>
+
+        <!--<TextView-->
+        <!--android:id="@+id/tv_wenxin_tishi"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="@dimen/m10dp"-->
+        <!--android:text="@string/wenxin_tixing" />-->
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/m10dp">
+
+            <com.amap.api.maps.MapView
+                android:id="@+id/mv_has_problem"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+            <Button
+                android:id="@+id/btn_factory_details"
+                style="@style/app_button_green_style"
+                android:layout_width="@dimen/m164dp"
+                android:layout_height="@dimen/m45dp"
+                android:layout_gravity="left|bottom"
+                android:layout_margin="@dimen/m10dp"
+                android:text="详情" />
+
+            <Button
+                android:id="@+id/btn_factory_other"
+                style="@style/app_button_green_style"
+                android:layout_width="@dimen/m164dp"
+                android:layout_height="@dimen/m45dp"
+                android:layout_gravity="right|bottom"
+                android:layout_margin="@dimen/m10dp"
+                android:text="其他汽修厂" />
+
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/m200dp">
+
+        <ImageView
+            android:id="@+id/iv_easy_destroy_pic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_launcher" />
+
+        <LinearLayout
+            android:id="@+id/ll_easy_destroy_name1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/m25dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_easy_destroy_name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="凸轮轴"
+                android:textSize="@dimen/m18sp" />
+
+            <TextView
+                android:id="@+id/tv_easy_destroy_en_name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TULUNZHOU"
+                android:textSize="@dimen/m16sp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_easy_destroy_name2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/m50dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_easy_destroy_name2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="蓄电池"
+                android:textSize="@dimen/m18sp" />
+
+            <TextView
+                android:id="@+id/tv_easy_destroy_en_name2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="XUDIANCHI"
+                android:textSize="@dimen/m16sp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>
