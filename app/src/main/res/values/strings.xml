@@ -31,7 +31,7 @@
     <string name="lingjian_introduce">介绍</string>
     <string name="recommend_factory">推荐商家:%s</string>
     <string name="service_time">服务时间：%s</string>
-    <string name="pinpai_name">品牌：%1$s元/质保%2$s</string>
+    <string name="pinpai_name">%1$s：%2$s元/质保%3$s</string>
     <string name="tuijiancankaojia">推荐参考价：%s</string>
     <string name="position_tag">position_tag</string>
     <string name="pinpailingjian">品牌零件：%s</string>

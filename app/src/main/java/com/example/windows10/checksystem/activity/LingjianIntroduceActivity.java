@@ -31,15 +31,16 @@ public class LingjianIntroduceActivity extends BaseActivity implements LingjianD
 
     private void initView() {
         mBinding.includeLingjianTopTitle.tvTitleTitle.setText(getString(R.string.lingjian_introduce));
-        mBinding.includeZixiu.tvZixiuZhidao.setOnClickListener(this);
-        mBinding.includeZixiu.tvLingjianZuoyong.setOnClickListener(this);
-        mBinding.includeZixiu.tvTuijianQixiu.setOnClickListener(this);
-        mBinding.includeZixiu.tvOtherQixiu.setOnClickListener(this);
+//        mBinding.includeZixiu.tvZixiuZhidao.setOnClickListener(this);
+//        mBinding.includeZixiu.tvLingjianZuoyong.setOnClickListener(this);
+//        mBinding.includeZixiu.tvTuijianQixiu.setOnClickListener(this);
+//        mBinding.includeZixiu.tvOtherQixiu.setOnClickListener(this);
         if (mBean == null) {
             return;
         }
         Glide.with(this).load(SystemApplication.BASE_PIC_URL + mBean.getPartPicture()).into(mBinding.ivLingjianImage);
         mBinding.tvLingjianName.setText(mBean.getBrandName());
+        mBinding.tvLingjianIntroduce.setText(mBean.getIntroduce());
     }
 
     @Override

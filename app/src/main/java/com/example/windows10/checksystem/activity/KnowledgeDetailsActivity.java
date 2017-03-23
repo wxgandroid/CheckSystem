@@ -2,7 +2,11 @@ package com.example.windows10.checksystem.activity;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -66,6 +70,21 @@ public class KnowledgeDetailsActivity extends BaseActivity implements KnowledgeD
     public void updatePagers(KnowledgeDetailsBean data) {
         mBinding.tvKnowledgeDetails.setText(data.getKnowledgeBase().getKnowledgeName());
         Glide.with(this).load(SystemApplication.BASE_PIC_URL + data.getKnowledgeBase().getPictureAddress()).into(mBinding.ivKnowledgeDetails);
+        String introduce = data.getKnowledgeBase().getIntroduce();
+        String[] split = introduce.split(",");
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.gravity = Gravity.CENTER;
+        params.setMargins(10, 10, 10, 10);
+        mBinding.llKnowledgeDetailsBottom.removeAllViews();
+        for (int i = 0; i < split.length; i++) {
+            TextView textView = new TextView(this);
+            textView.setText(split[i]);
+            textView.setLayoutParams(params);
+            textView.setGravity(Gravity.CENTER);
+            mBinding.llKnowledgeDetailsBottom.addView(textView);
+        }
+
+
     }
 
     @Override

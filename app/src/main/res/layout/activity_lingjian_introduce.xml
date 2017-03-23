@@ -41,10 +41,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <include
-            android:id="@+id/include_zixiu"
-            layout="@layout/zixiu_layout" />
-
+        <!--<include-->
+            <!--android:id="@+id/include_zixiu"-->
+            <!--layout="@layout/zixiu_layout" />-->
 
     </LinearLayout>
 

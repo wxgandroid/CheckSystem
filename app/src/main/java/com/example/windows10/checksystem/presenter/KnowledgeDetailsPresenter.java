@@ -36,7 +36,6 @@ public class KnowledgeDetailsPresenter extends BasePresenter implements RxUtils.
     public void onSuccess(KnowledgeDetailsBean data) {
         mView.dismissIOSLoading();
         mView.updatePagers(data);
-
     }
 
     @Override

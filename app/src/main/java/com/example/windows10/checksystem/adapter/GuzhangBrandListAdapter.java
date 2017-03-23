@@ -39,7 +39,7 @@ public class GuzhangBrandListAdapter extends RecyclerView.Adapter<GuzhangBrandLi
     @Override
     public void onBindViewHolder(GuzhangBrandViewHolder holder, final int position) {
         LingJianDetailsBean.SparePartsBean.SparePartsListBean bean = mData.get(position);
-        holder.textView.setText(String.format(mContext.getString(R.string.pinpai_name), bean.getPrice(), bean.getGuaranteeDate()));
+        holder.textView.setText(String.format(mContext.getString(R.string.pinpai_name), bean.getBrandName(), bean.getPrice(), bean.getGuaranteeDate()));
         holder.textView.setGravity(Gravity.CENTER);
         holder.textView.setLayoutParams(params);
         holder.textView.setOnClickListener(new View.OnClickListener() {

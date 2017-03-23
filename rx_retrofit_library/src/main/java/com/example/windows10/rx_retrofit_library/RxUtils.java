@@ -269,11 +269,11 @@ public class RxUtils {
     //联网请求数据的监听（成功，失败，完成）状态
     public interface LoadingNetDataListener<T extends Object> {
 
-        public void onSuccess(T data);
+         void onSuccess(T data);
 
-        public void onError(String msg);
+         void onError(String msg);
 
-        public void onComplete();
+         void onComplete();
 
     }
 

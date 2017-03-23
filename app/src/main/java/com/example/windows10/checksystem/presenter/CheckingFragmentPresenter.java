@@ -22,6 +22,7 @@ import com.example.windows10.checksystem.constant.Constants;
 import com.example.windows10.checksystem.fragment.BaseFragment;
 import com.example.windows10.checksystem.fragment.NoBlueToothFragment;
 import com.example.windows10.checksystem.view.CheckingFragmentView;
+import com.example.windows10.rx_retrofit_library.CommonUtils;
 import com.example.windows10.rx_retrofit_library.RxUtils;
 
 import java.io.IOException;
@@ -369,21 +370,31 @@ public class CheckingFragmentPresenter extends CheckPresenter implements RxUtils
             @Override
             public void onSuccess(RequestResultBean data) {
                 isLoop = false;
+                if (data == null || data.getMessage() == null || "false".equals(data.getMessage().getSuccess())) {
+                    showFragment(Constants.FRAGMENT_NOPROBLEM);
+                    return;
+                }
+
                 if ("true".equals(data.getMessage().getSuccess())) {
                     mView.updateProgress(100);
                     //当请求文件成功，并且有数据的时候跳转到当前有问题的界面
                     Log.e("TAG", "onSuccess(),停止轮询器");
                     String str = data.getContentResults();
+                    if (CommonUtils.isEmpty(str)) {
+                        showFragment(Constants.FRAGMENT_NOPROBLEM);
+                        return;
+                    }
                     String[] split = str.split(";");
 //                    4 汽车没电,spareParts:{price:40.0,manualPrice:0.0,btx1:1小时,btx2:汽车保险},partsId:14;
                     mList.clear();
                     for (int i = 0; i < split.length; i++) {
+//                       {" 010C":"汽车没电","spareParts":{"price":"","manualPrice":"","btx1":"","btx2":""}","partsId":""}
                         String replace = split[i].replace(",", "\",\"");
                         String replace1 = replace.replace("{", "{\"");
-                        String replace2 = replace1.replace("}\"", "\"}");
+                        String replace2 = replace1.replace("}", "\"}");
                         String replace3 = replace2.replace(":", "\":\"");
                         String replace4 = replace3.replace(" ", "\":\"");
-                        String replace5 = "{\"" + replace4.replace("\"{", "{") + "\"}";
+                        String replace5 = ("{\"" + replace4.replace("\"{", "{") + "\"}").replace("}\"", "}");
                         int begin = replace5.indexOf("\"", 1);
                         int end = replace5.indexOf("\"", 2);
                         String s = replace5.substring(0, begin + 1) + "id" + replace5.substring(end);
@@ -392,14 +403,12 @@ public class CheckingFragmentPresenter extends CheckPresenter implements RxUtils
                     }
 
 //                    showFragment(Constants.FRAGMENT_NOPROBLEM);
-                    if (mList.size() > 0) {
+                    if (mList != null && mList.size() > 0) {
                         ((CheckingActivity) mContext).setResultBeens(mList);
                         showFragment(Constants.FRAGMENT_HASPROBLEM);
                     } else {
                         showFragment(Constants.FRAGMENT_NOPROBLEM);
                     }
-                } else {
-                    showFragment(Constants.FRAGMENT_NOPROBLEM);
                 }
             }
 
@@ -407,6 +416,7 @@ public class CheckingFragmentPresenter extends CheckPresenter implements RxUtils
             public void onError(String msg) {
                 Log.e("TAG", "onError(),停止轮询器");
                 isLoop = false;
+                showFragment(Constants.FRAGMENT_NOPROBLEM);
             }
 
             @Override
