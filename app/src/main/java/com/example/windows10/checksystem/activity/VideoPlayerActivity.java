@@ -3,12 +3,15 @@ package com.example.windows10.checksystem.activity;
 import android.content.res.Configuration;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.dou361.ijkplayer.widget.PlayerView;
 import com.example.windows10.checksystem.R;
+import com.example.windows10.checksystem.application.SystemApplication;
 import com.example.windows10.checksystem.bean.LingJianDetailsBean;
 import com.example.windows10.checksystem.constant.Constants;
 import com.example.windows10.checksystem.databinding.ActivityVideoPlayerBinding;
+import com.example.windows10.rx_retrofit_library.CommonUtils;
 
 public class VideoPlayerActivity extends BaseActivity {
 
@@ -22,10 +25,17 @@ public class VideoPlayerActivity extends BaseActivity {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_video_player);
         mIntent = getIntent();
         videoBean = (LingJianDetailsBean.SparePartsBean.VideoBean) mIntent.getSerializableExtra(Constants.INTENT_KEY_VIDEO);
-        String url = "http://9890.vod.myqcloud.com/9890_9c1fa3e2aea011e59fc841df10c92278.f20.mp4";
+        if (videoBean == null) {
+            Toast.makeText(VideoPlayerActivity.this, "视频文件信息错误", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+        String url = SystemApplication.BASE_VIDEO_URL + videoBean.getVideoAddress();
+        if (CommonUtils.isEmpty(url)) {
+            Toast.makeText(VideoPlayerActivity.this, "视频文件地址为空", Toast.LENGTH_SHORT).show();
+            finish();
+        }
         mPlayer = new PlayerView(this);
-
-        mPlayer.setTitle("测试标题")
+        mPlayer.setTitle(videoBean.getVideoName())
                 .setPlaySource(url)
                 .setOnlyFullScreen(true)
                 .startPlay();

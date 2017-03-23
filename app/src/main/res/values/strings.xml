@@ -25,8 +25,8 @@
     <string name="lingjian_xinghao">型号：%1$s</string>
     <string name="lingjian_guige">规格：%1$s</string>
     <string name="yuanchang_price">原厂：%1$s元/质保%2$s</string>
-    <string name="lingjian_pinpai_price">品牌:%1$s元/质保%2$s个月</string>
-    <string name="yuji_gonshi">预计工时:%1$s分钟/保修%2$s个月</string>
+    <string name="lingjian_pinpai_price">品牌:%1$s元/质保%2$s</string>
+    <string name="yuji_gonshi">预计工时:%1$s分钟/保修%2$s</string>
     <string name="lingjian_shougongfei">手工费：4S维修店%1$s  B类厂维修店%2$s元</string>
     <string name="lingjian_introduce">介绍</string>
     <string name="recommend_factory">推荐商家:%s</string>

@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.windows10.checksystem.R;
+import com.example.windows10.checksystem.application.SystemApplication;
 import com.example.windows10.checksystem.bean.RecommendFactoryBean;
 import com.example.windows10.checksystem.constant.Constants;
 import com.example.windows10.checksystem.databinding.ActivityFactoryDetailsBinding;
@@ -29,7 +31,7 @@ public class FactoryDetailsActivity extends BaseActivity implements FactoryDetai
         partID = mIntent.getStringExtra(Constants.INTENT_PARTS_ID);
         mBean = (RecommendFactoryBean.FactoryListBean) mIntent.getSerializableExtra(Constants.INTENT_FACTORY_INFO);
         initView();
-//        updatePagers(mBean);
+        updatePagers(mBean);
     }
 
     private void initView() {
@@ -43,11 +45,12 @@ public class FactoryDetailsActivity extends BaseActivity implements FactoryDetai
     private void updatePagers(RecommendFactoryBean.FactoryListBean bean) {
         mBinding.includeFactoryDetails.tvTitleTitle.setText(getString(R.string.factory_introduce));
         mBinding.tvFactoryDetailsName.setText(String.format(getString(R.string.recommend_factory), bean.getFactoryName()));
-        mBinding.tvFactoryDetailsTime.setText(String.format(getString(R.string.service_time), bean.getCreateTime()));
+        mBinding.tvFactoryDetailsTime.setText(String.format(getString(R.string.service_time), "全天"));
         mBinding.rbFactoryDetailsScore.setRating(bean.getLevel());
-        mBinding.tvFactoryDetailsIntro.setText("" + bean.getIntroduce());
-        mBinding.tvFactoryDetailsPhone.setText("" + bean.getPhone());
-        mBinding.tvFactoryDetailsAddress.setText("" + bean.getFactoryAddress());
+        mBinding.tvFactoryDetailsIntro.setText(bean.getIntroduce());
+        mBinding.tvFactoryDetailsPhone.setText(bean.getPhone());
+        mBinding.tvFactoryDetailsAddress.setText(bean.getFactoryAddress());
+        Glide.with(this).load(SystemApplication.BASE_PIC_URL + mBean.getPicture()).into(mBinding.ivFactoryPhotos);
     }
 
     @Override

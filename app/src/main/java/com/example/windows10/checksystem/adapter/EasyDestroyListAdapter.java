@@ -49,13 +49,13 @@ public class EasyDestroyListAdapter extends RecyclerView.Adapter<EasyDestroyList
             holder.ll_easy_destroy_name1.setVisibility(View.VISIBLE);
             holder.ll_easy_destroy_name2.setVisibility(View.GONE);
             holder.tv_easy_destroy_en_name1.setText(mData.get(position).getBrandId() + "");
-            holder.tv_easy_destroy_name1.setText(mData.get(position).getPartsName());
+            holder.tv_easy_destroy_name1.setText(mData.get(position).getPartName());
 
         } else {
             holder.ll_easy_destroy_name1.setVisibility(View.GONE);
             holder.ll_easy_destroy_name2.setVisibility(View.VISIBLE);
             holder.tv_easy_destroy_en_name2.setText(mData.get(position).getBrandId() + "");
-            holder.tv_easy_destroy_name2.setText(mData.get(position).getPartsName());
+            holder.tv_easy_destroy_name2.setText(mData.get(position).getPartName());
         }
         Log.e("TAG", SystemApplication.BASE_PIC_URL + mData.get(position).getPartPicture());
         holder.itemView.setTag(R.id.position_tag, position);

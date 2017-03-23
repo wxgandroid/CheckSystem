@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.windows10.checksystem.R;
+import com.example.windows10.checksystem.application.SystemApplication;
 import com.example.windows10.checksystem.bean.LingJianDetailsBean;
 import com.example.windows10.checksystem.constant.Constants;
 import com.example.windows10.checksystem.databinding.ActivityLingjianDetailsBinding;
@@ -30,7 +31,7 @@ public class LingjianDetailsActivity extends BaseActivity implements View.OnClic
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_lingjian_details);
         mPresenter = new LingjianDetailsPresenter(this);
         mIntent = getIntent();
-        lingjianID = mIntent.getStringExtra(Constants.INTENT_KEY_LINGJIAN_ID);
+        lingjianID = mIntent.getStringExtra(Constants.INTENT_KEY_LINGJIAN_ID)+"";
         Log.e("TAG", "lingjianID的值为：" + lingjianID);
         //初始化控件的点击事件
         initListener();
@@ -39,10 +40,10 @@ public class LingjianDetailsActivity extends BaseActivity implements View.OnClic
     }
 
     private void initListener() {
-        mBinding.includeZixiu.tvZixiuZhidao.setOnClickListener(this);
-        mBinding.includeZixiu.tvLingjianZuoyong.setOnClickListener(this);
-        mBinding.includeZixiu.tvTuijianQixiu.setOnClickListener(this);
-        mBinding.includeZixiu.tvOtherQixiu.setOnClickListener(this);
+//        mBinding.includeZixiu.tvZixiuZhidao.setOnClickListener(this);
+//        mBinding.includeZixiu.tvLingjianZuoyong.setOnClickListener(this);
+//        mBinding.includeZixiu.tvTuijianQixiu.setOnClickListener(this);
+//        mBinding.includeZixiu.tvOtherQixiu.setOnClickListener(this);
     }
 
     @Override
@@ -63,12 +64,12 @@ public class LingjianDetailsActivity extends BaseActivity implements View.OnClic
     @Override
     public void updateUI(LingJianDetailsBean data) {
         LingJianDetailsBean.SparePartsBean bean = data.getSpareParts();
-        Glide.with(this).load(Constants.BASE_URL + bean.getPartPicture()).into(mBinding.ivLingjianDetailsPic);
+        Glide.with(this).load(SystemApplication.BASE_PIC_URL + bean.getPartPicture()).into(mBinding.ivLingjianDetailsPic);
         mBinding.tvLingjianDetailsXinghao.setText(String.format(getString(R.string.lingjian_xinghao), bean.getModel()));
         mBinding.tvLingjianDetailsGuige.setText(String.format(getString(R.string.lingjian_guige), bean.getSpecifications()));
-        mBinding.tvLingjianDetailsYuanchangPriceTime.setText(String.format(getString(R.string.yuanchang_price), bean.getPrice(), "12"));
-        mBinding.tvLingjianDetailsPinpai.setText(String.format(getString(R.string.lingjian_pinpai_price), bean.getPrice(), "12"));
-        mBinding.tvLingjianDetailsWeixiuShichang.setText(String.format(getString(R.string.yuji_gonshi), bean.getBtx1(), "12"));
-        mBinding.tvLingjianDetailsShougongfei.setText(String.format(getString(R.string.lingjian_shougongfei), bean.getPrice(), "12"));
+        mBinding.tvLingjianDetailsYuanchangPriceTime.setText(String.format(getString(R.string.yuanchang_price), bean.getPrice(), bean.getGuaranteeDate()));
+        mBinding.tvLingjianDetailsPinpai.setText(String.format(getString(R.string.lingjian_pinpai_price), bean.getPrice(), bean.getGuaranteeDate()));
+        mBinding.tvLingjianDetailsWeixiuShichang.setText(String.format(getString(R.string.yuji_gonshi), bean.getBtx1(), bean.getGuaranteeDate()));
+        mBinding.tvLingjianDetailsShougongfei.setText(String.format(getString(R.string.lingjian_shougongfei), bean.getPrice(), bean.getGuaranteeDate()));
     }
 }

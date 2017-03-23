@@ -2,7 +2,6 @@ package com.example.windows10.checksystem.activity;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -36,6 +35,9 @@ public class LingjianIntroduceActivity extends BaseActivity implements LingjianD
         mBinding.includeZixiu.tvLingjianZuoyong.setOnClickListener(this);
         mBinding.includeZixiu.tvTuijianQixiu.setOnClickListener(this);
         mBinding.includeZixiu.tvOtherQixiu.setOnClickListener(this);
+        if (mBean == null) {
+            return;
+        }
         Glide.with(this).load(SystemApplication.BASE_PIC_URL + mBean.getPartPicture()).into(mBinding.ivLingjianImage);
         mBinding.tvLingjianName.setText(mBean.getBrandName());
     }

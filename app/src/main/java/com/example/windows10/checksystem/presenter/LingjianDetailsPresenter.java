@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.example.windows10.checksystem.R;
 import com.example.windows10.checksystem.activity.LingjianIntroduceActivity;
+import com.example.windows10.checksystem.activity.MapviewActivity;
 import com.example.windows10.checksystem.activity.VideoPlayerActivity;
 import com.example.windows10.checksystem.bean.LingJianDetailsBean;
 import com.example.windows10.checksystem.constant.Constants;
@@ -57,12 +58,9 @@ public class LingjianDetailsPresenter extends BasePresenter implements RxUtils.L
                 CommonUtils.toOtherActivity((Activity) mContext, LingjianIntroduceActivity.class);
                 break;
             case R.id.tv_tuijian_qixiu:
-                //点击了选择推荐汽修厂按钮
-
-                break;
             case R.id.tv_other_qixiu:
                 //点击了选择其他汽修厂的按钮
-
+                CommonUtils.toOtherActivity((Activity) mContext, MapviewActivity.class);
                 break;
         }
     }
