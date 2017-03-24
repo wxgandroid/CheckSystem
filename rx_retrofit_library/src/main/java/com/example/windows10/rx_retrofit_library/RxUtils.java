@@ -44,13 +44,13 @@ public class RxUtils {
                     @Override
                     public void onSubscribe(Disposable d) {
 
-
                     }
 
                     @Override
                     public void onNext(String value) {
                         if (loadingNetDataListener != null) {
                             loadingNetDataListener.onSuccess(JSON.parseObject(value, t));
+
                         }
 
                     }
@@ -70,9 +70,8 @@ public class RxUtils {
                         }
                     }
                 });
-
-
     }
+
 
     //发送post请求进行联网请求数据
     public <T extends Object> void post(String baseUrl, String interfaceName, Map<String, String> params, final LoadingNetDataListener<T> loadingNetDataListener, final Class<T> t) {
@@ -269,11 +268,11 @@ public class RxUtils {
     //联网请求数据的监听（成功，失败，完成）状态
     public interface LoadingNetDataListener<T extends Object> {
 
-         void onSuccess(T data);
+        void onSuccess(T data);
 
-         void onError(String msg);
+        void onError(String msg);
 
-         void onComplete();
+        void onComplete();
 
     }
 

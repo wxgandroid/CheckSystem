@@ -100,6 +100,7 @@ public class Constants {
     public static final String INTENT_LONGITUDE = "intent_longitude";
     public static final String INTENT_DETAILS_CHECK_ALL = "intent_details_check_all";
     public static final String INTENT_KNOWLEDGE_DETAILS = "intent_knowledge_details";
+    public static final String INTENT_SHOW_RECOMMEND = "intent_show_recommend";
 
 
     //给OBD发送的消息

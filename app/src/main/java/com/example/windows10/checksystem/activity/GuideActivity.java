@@ -3,6 +3,7 @@ package com.example.windows10.checksystem.activity;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.amap.api.navi.AMapNavi;
@@ -33,7 +34,7 @@ import java.util.List;
  * 导航的页面
  */
 
-public class GuideActivity extends BaseActivity implements MapGuideView, AMapNaviViewListener, AMapNaviListener {
+public class GuideActivity extends BaseActivity implements MapGuideView, AMapNaviViewListener, AMapNaviListener, View.OnClickListener {
 
     private ActivityMapBinding mBinding;
     //声明mListener对象，定位监听器
@@ -55,6 +56,8 @@ public class GuideActivity extends BaseActivity implements MapGuideView, AMapNav
         mAMapNavi = AMapNavi.getInstance(getApplicationContext());
         mAMapNavi.addAMapNaviListener(this);
         mIntent = getIntent();
+        mBinding.includeGuide.tvTitleTitle.setText("导航");
+        mBinding.includeGuide.ivTitleBack.setOnClickListener(this);
 //        mBean = (RecommendFactoryBean.FactoryListBean) mIntent.getSerializableExtra(Constants.INTENT_GUIDE);
         mBinding.mapView.setAMapNaviViewListener(this);
         double[] lattitudes = mIntent.getDoubleArrayExtra(Constants.INTENT_LATTITUDE);
@@ -162,7 +165,6 @@ public class GuideActivity extends BaseActivity implements MapGuideView, AMapNav
             e.printStackTrace();
         }
         mAMapNavi.calculateDriveRoute(sList, eList, mWayPointList, strategy);
-
     }
 
     @Override
@@ -300,6 +302,16 @@ public class GuideActivity extends BaseActivity implements MapGuideView, AMapNav
 
     @Override
     public void updateAimlessModeCongestionInfo(AimLessModeCongestionInfo aimLessModeCongestionInfo) {
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.iv_title_back:
+                finishPager();
+                break;
+        }
 
     }
 }

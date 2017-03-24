@@ -1,5 +1,6 @@
 package com.example.windows10.checksystem.activity;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.view.View;
@@ -40,12 +41,18 @@ public class FactoryDetailsActivity extends BaseActivity implements FactoryDetai
         mBinding.btnCankaoPrice.setOnClickListener(this);
         mBinding.tvFactoryDetailsPhone.setOnClickListener(this);
         mBinding.tvFactoryDetailsAddress.setOnClickListener(this);
+        if (CommonUtils.isEmpty(partID)) {
+            mBinding.btnCankaoPrice.setVisibility(View.GONE);
+        } else {
+            mBinding.btnCankaoPrice.setVisibility(View.VISIBLE);
+        }
+
     }
 
     private void updatePagers(RecommendFactoryBean.FactoryListBean bean) {
         mBinding.includeFactoryDetails.tvTitleTitle.setText(getString(R.string.factory_introduce));
         mBinding.tvFactoryDetailsName.setText(String.format(getString(R.string.recommend_factory), bean.getFactoryName()));
-        mBinding.tvFactoryDetailsTime.setText(String.format(getString(R.string.service_time), "全天"));
+        mBinding.tvFactoryDetailsTime.setText(String.format(getString(R.string.service_time), bean.getBtx1()));
         mBinding.rbFactoryDetailsScore.setRating(bean.getLevel());
         mBinding.tvFactoryDetailsIntro.setText(bean.getIntroduce());
         mBinding.tvFactoryDetailsPhone.setText(bean.getPhone());
@@ -78,7 +85,12 @@ public class FactoryDetailsActivity extends BaseActivity implements FactoryDetai
                 break;
             case R.id.tv_factory_details_address:
                 //开始进行导航
-
+                mBean.getCoordinateX();
+                mBean.getCoordinateY();
+                if (mIntent == null) {
+                    mIntent = new Intent();
+                }
+                CommonUtils.toOtherActivity(this, GuideActivity.class, mIntent);
                 break;
 
 

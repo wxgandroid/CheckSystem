@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.windows10.checksystem.R;
 import com.example.windows10.checksystem.activity.GuZhangDetailsActivity;
+import com.example.windows10.checksystem.activity.LingjianDetailsActivity;
 import com.example.windows10.checksystem.bean.LingJianDetailsBean;
 
 import java.util.ArrayList;
@@ -45,7 +46,11 @@ public class GuzhangBrandListAdapter extends RecyclerView.Adapter<GuzhangBrandLi
         holder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((GuZhangDetailsActivity) mContext).updateUI(mData.get(position));
+                if(mContext instanceof GuZhangDetailsActivity){
+                    ((GuZhangDetailsActivity) mContext).updateUI(mData.get(position));
+                }else if(mContext instanceof LingjianDetailsActivity){
+                    ((LingjianDetailsActivity)mContext).updateUI(mData.get(position));
+                }
             }
         });
     }

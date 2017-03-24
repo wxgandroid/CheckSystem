@@ -6,7 +6,9 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include layout="@layout/app_title_layout" />
+        <include layout="@layout/app_title_layout"
+            android:id="@+id/include_guide"
+            />
 
         <com.amap.api.navi.AMapNaviView
             android:id="@+id/map_view"

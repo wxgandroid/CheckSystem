@@ -105,10 +105,11 @@ public class HasProblemPresenter extends BasePresenter implements RxUtils.Loadin
     }
 
     //跳转到对应汽修厂的详细信息的界面
-    public void toFactoryDetails(int makerPosition) {
+    public void toFactoryDetails(int makerPosition, String partsId) {
         if (mIntent == null) {
             mIntent = new Intent();
         }
+        mIntent.putExtra(Constants.INTENT_PARTS_ID, partsId);
         mIntent.putExtra(Constants.INTENT_FACTORY_INFO, mData.getFactoryList().get(makerPosition));
         CommonUtils.toOtherActivity((CheckingActivity) mContext, FactoryDetailsActivity.class, mIntent);
     }

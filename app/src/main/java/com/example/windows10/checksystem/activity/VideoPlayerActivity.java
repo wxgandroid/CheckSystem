@@ -28,6 +28,7 @@ public class VideoPlayerActivity extends BaseActivity {
         if (videoBean == null) {
             Toast.makeText(VideoPlayerActivity.this, "视频文件信息错误", Toast.LENGTH_SHORT).show();
             finish();
+            return;
         }
         String url = SystemApplication.BASE_VIDEO_URL + videoBean.getVideoAddress();
         if (CommonUtils.isEmpty(url)) {

@@ -58,8 +58,19 @@ public class LingjianIntroduceActivity extends BaseActivity implements LingjianD
         mPresenter.onClick(v);
     }
 
+
     @Override
-    public void updateUI(LingJianDetailsBean data) {
+    public void updateUI(LingJianDetailsBean.SparePartsBean data) {
+
+    }
+
+    @Override
+    public void showPinpaiList(View v) {
+
+    }
+
+    @Override
+    public void setData(LingJianDetailsBean data) {
 
     }
 }

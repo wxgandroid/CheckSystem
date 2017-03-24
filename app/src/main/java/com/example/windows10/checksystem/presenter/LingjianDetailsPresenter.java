@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.windows10.checksystem.R;
 import com.example.windows10.checksystem.activity.LingjianIntroduceActivity;
@@ -42,6 +43,11 @@ public class LingjianDetailsPresenter extends BasePresenter implements RxUtils.L
         }
         switch (view.getId()) {
             case R.id.tv_zixiu_zhidao:
+                if (videoBean == null) {
+                    Toast.makeText(mContext, "视频信息错误", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 //点击了自修指导按钮
                 if (mIntent == null) {
                     mIntent = new Intent();
@@ -62,6 +68,10 @@ public class LingjianDetailsPresenter extends BasePresenter implements RxUtils.L
                 //点击了选择其他汽修厂的按钮
                 CommonUtils.toOtherActivity((Activity) mContext, MapviewActivity.class);
                 break;
+            case R.id.tv_lingjian_details_pinpai:
+                mView.showPinpaiList(view);
+                break;
+
         }
     }
 
@@ -77,9 +87,9 @@ public class LingjianDetailsPresenter extends BasePresenter implements RxUtils.L
     public void onSuccess(LingJianDetailsBean data) {
         dismissDialog();
         clickable = true;
+        mView.setData(data);
         videoBean = data.getSpareParts().getVideo();
         parts = data.getSpareParts();
-        mView.updateUI(data);
         Log.e("TAG", "onSuccess()");
     }
 

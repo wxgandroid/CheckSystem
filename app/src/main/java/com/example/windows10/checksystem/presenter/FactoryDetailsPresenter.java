@@ -29,6 +29,5 @@ public class FactoryDetailsPresenter extends BasePresenter {
         }
         mIntent.putExtra(Constants.INTENT_PARTS_ID, partID);
         CommonUtils.toOtherActivity((FactoryDetailsActivity) mContext, GuZhangDetailsActivity.class, mIntent);
-        mView.finishPager();
     }
 }

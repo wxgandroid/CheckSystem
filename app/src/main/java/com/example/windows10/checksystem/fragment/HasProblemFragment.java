@@ -1,6 +1,7 @@
 package com.example.windows10.checksystem.fragment;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -31,6 +32,7 @@ import com.example.windows10.checksystem.activity.EasyDestroyListActivity;
 import com.example.windows10.checksystem.activity.MapviewActivity;
 import com.example.windows10.checksystem.adapter.PossibleDestroyListPagerAdapter;
 import com.example.windows10.checksystem.bean.ParseCheckResultBean;
+import com.example.windows10.checksystem.constant.Constants;
 import com.example.windows10.checksystem.customview.PointView;
 import com.example.windows10.checksystem.databinding.HasProblemFragmentLayoutBinding;
 import com.example.windows10.checksystem.databinding.MapInfoWindowLayoutBinding;
@@ -44,7 +46,7 @@ import java.util.ArrayList;
 /**
  * 检测以后汽车有问题的页面
  */
-public  class HasProblemFragment extends BaseFragment implements View.OnClickListener, AMapLocationListener, LocationSource, PoiSearch.OnPoiSearchListener, AMap.OnMarkerClickListener, ViewPager.OnPageChangeListener, HasProblemView {
+public class HasProblemFragment extends BaseFragment implements View.OnClickListener, AMapLocationListener, LocationSource, PoiSearch.OnPoiSearchListener, AMap.OnMarkerClickListener, ViewPager.OnPageChangeListener, HasProblemView {
 
     private HasProblemPresenter mPresenter;
     private HasProblemFragmentLayoutBinding mBinding;
@@ -76,6 +78,7 @@ public  class HasProblemFragment extends BaseFragment implements View.OnClickLis
     private ArrayList<Marker> mMarkers = new ArrayList<>();
     //保存点击的标记位置的position
     private int makerPosition = -1;
+    private Intent mIntent;
 
 
     @Nullable
@@ -151,7 +154,7 @@ public  class HasProblemFragment extends BaseFragment implements View.OnClickLis
             String price2 = mList.get(i).getSpareParts().getManualPrice();
             String totalPrice = Double.parseDouble(price1) + Double.parseDouble(price2) + "";
             binding.tvDestroyResult.setText(mList.get(i).getId());
-            binding.tvChangePrice.setText(String.format(getString(R.string.change_price), totalPrice+""));
+            binding.tvChangePrice.setText(String.format(getString(R.string.change_price), totalPrice + ""));
             binding.tvPinpaiPrice.setText(String.format(getString(R.string.pinpai_price), price1));
             binding.tvShougongPrice.setText(String.format(getString(R.string.shougongfei), price2));
             binding.tvYongshi.setText(String.format(getString(R.string.yujiyongshi), mList.get(i).getSpareParts().getBtx1()));
@@ -182,7 +185,11 @@ public  class HasProblemFragment extends BaseFragment implements View.OnClickLis
                 mPresenter.toGuZhangActivity(mList.get(mBinding.vpDestroyList.getCurrentItem()).getPartsId());
                 break;
             case R.id.btn_factory_other:
-                CommonUtils.toOtherActivity((Activity) mContext, MapviewActivity.class);
+                if (mIntent == null) {
+                    mIntent = new Intent();
+                }
+                mIntent.putExtra(Constants.INTENT_PARTS_ID, mList.get(mBinding.vpDestroyList.getCurrentItem()).getPartsId());
+                CommonUtils.toOtherActivity((Activity) mContext, MapviewActivity.class, mIntent);
                 break;
             case R.id.iv_map_guide:
                 dismissMarker();
@@ -194,7 +201,7 @@ public  class HasProblemFragment extends BaseFragment implements View.OnClickLis
                 break;
             case R.id.iv_map_info:
                 dismissMarker();
-                mPresenter.toFactoryDetails(makerPosition);
+                mPresenter.toFactoryDetails(makerPosition, mList.get(mBinding.vpDestroyList.getCurrentItem()).getPartsId());
                 break;
 
         }

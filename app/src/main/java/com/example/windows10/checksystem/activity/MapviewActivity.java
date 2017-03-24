@@ -52,12 +52,19 @@ public class MapviewActivity extends BaseActivity implements LocationSource, AMa
     private int makerPosition = -1;
     //保存地图上标记点的Marker对象的集合
     private ArrayList<Marker> mMarkers = new ArrayList<>();
+    private String partsID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_mapview);
+        mIntent = getIntent();
+        showRecommend = mIntent.getBooleanExtra(Constants.INTENT_SHOW_RECOMMEND, true);
+        partsID = mIntent.getStringExtra(Constants.INTENT_PARTS_ID);
         mBinding.mapView.onCreate(savedInstanceState);
+        mBinding.btnSwitchTuijian.setOnClickListener(this);
+        mBinding.includeMapview.tvTitleTitle.setText("导航");
+        mBinding.includeMapview.ivTitleBack.setOnClickListener(this);
         initLocation();
     }
 
@@ -262,8 +269,12 @@ public class MapviewActivity extends BaseActivity implements LocationSource, AMa
                 break;
             case R.id.iv_map_info:
                 dismissMarker();
-                toFactoryDetails(makerPosition);
+                toFactoryDetails(makerPosition,partsID);
                 break;
+            case R.id.iv_title_back:
+                finish();
+                break;
+
 
         }
 
@@ -326,10 +337,11 @@ public class MapviewActivity extends BaseActivity implements LocationSource, AMa
     }
 
     //跳转到对应汽修厂的详细信息的界面
-    public void toFactoryDetails(int makerPosition) {
+    public void toFactoryDetails(int makerPosition, String partsID) {
         if (mIntent == null) {
             mIntent = new Intent();
         }
+        mIntent.putExtra(Constants.INTENT_PARTS_ID,partsID);
         mIntent.putExtra(Constants.INTENT_FACTORY_INFO, mData.getFactoryList().get(makerPosition));
         CommonUtils.toOtherActivity(this, FactoryDetailsActivity.class, mIntent);
     }

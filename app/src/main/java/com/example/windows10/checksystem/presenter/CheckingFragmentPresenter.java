@@ -305,6 +305,12 @@ public class CheckingFragmentPresenter extends CheckPresenter implements RxUtils
 
             @Override
             public void doComplete() {
+                try {
+                    if (clientSocket != null)
+                        clientSocket.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 mProgress = mMax;
                 Log.e("TAG", "rawData最后的数据为" + rawData);
                 HashMap<String, String> params = new HashMap<>();

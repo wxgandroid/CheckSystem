@@ -76,6 +76,8 @@
             android:layout_marginLeft="@dimen/m40dp"
             android:gravity="center_vertical"
             android:text="品牌："
+            android:layout_marginRight="@dimen/m10dp"
+            android:drawableRight="@drawable/guzhang_details_xiala"
             android:textSize="@dimen/m16sp" />
 
         <View
@@ -118,9 +120,9 @@
             android:layout_weight="1"
             android:background="@color/app_divide" />
 
-        <!--<include-->
-        <!--android:id="@+id/include_zixiu"-->
-        <!--layout="@layout/zixiu_layout" />-->
+        <include
+        android:id="@+id/include_zixiu"
+        layout="@layout/zixiu_layout" />
     </LinearLayout>
 </layout>
 

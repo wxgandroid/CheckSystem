@@ -66,13 +66,14 @@ public class GuZhangDetailsActivity extends BaseActivity implements GuZhangView,
         Glide.with(this).load(SystemApplication.BASE_PIC_URL + bean.getPartPicture()).into(mBinding.ivGuzhangDetailsPic);
         mBinding.tvGuzhangDetailsXinghao.setText(String.format(getString(R.string.lingjian_xinghao), bean.getModel()));
         mBinding.tvGuzhangDetailsGuige.setText(String.format(getString(R.string.lingjian_guige), bean.getSpecifications()));
+
         mBinding.tvGuzhangDetailsYuanchangPriceTime.setText(String.format(getString(R.string.yuanchang_price), bean.getPrice(), bean.getGuaranteeDate()));
         mBinding.tvGuzhangDetailsPinpai.setText(String.format(getString(R.string.pinpai_name), bean.getBrandName(), bean.getPrice(), bean.getGuaranteeDate()));
         mBinding.tvGuzhangDetailsShougongfei.setText(String.format(getString(R.string.shougongfei), bean.getManualPrice()));
         double totalPrice = bean.getPrice() + bean.getManualPrice();
         mBinding.tvGuzhangDetailsTuijianPrice.setText(String.format(getString(R.string.tuijiancankaojia), totalPrice + ""));
         mBinding.tvGuzhangDetailsPinpaiPrice.setText(String.format(getString(R.string.pinpailingjian), bean.getPrice() + ""));
-        mBinding.tvGuzhangDetailsWeixiuShichang.setText(bean.getBtx1());
+        mBinding.tvGuzhangDetailsWeixiuShichang.setText(String.format(getString(R.string.yujiyongshi), bean.getBtx1()));
     }
 
     public void updateUI(LingJianDetailsBean.SparePartsBean.SparePartsListBean bean) {
@@ -81,13 +82,12 @@ public class GuZhangDetailsActivity extends BaseActivity implements GuZhangView,
         Glide.with(this).load(SystemApplication.BASE_PIC_URL + bean.getPartPicture()).into(mBinding.ivGuzhangDetailsPic);
         mBinding.tvGuzhangDetailsXinghao.setText(String.format(getString(R.string.lingjian_xinghao), bean.getModel()));
         mBinding.tvGuzhangDetailsGuige.setText(String.format(getString(R.string.lingjian_guige), bean.getSpecifications()));
-        mBinding.tvGuzhangDetailsYuanchangPriceTime.setText(String.format(getString(R.string.yuanchang_price), bean.getPrice(), bean.getGuaranteeDate()));
         mBinding.tvGuzhangDetailsPinpai.setText(String.format(getString(R.string.pinpai_name), bean.getBrandName(), bean.getPrice(), bean.getGuaranteeDate()));
         mBinding.tvGuzhangDetailsShougongfei.setText(String.format(getString(R.string.shougongfei), bean.getManualPrice()));
         double totalPrice = bean.getPrice() + bean.getManualPrice();
         mBinding.tvGuzhangDetailsTuijianPrice.setText(String.format(getString(R.string.tuijiancankaojia), totalPrice + ""));
         mBinding.tvGuzhangDetailsPinpaiPrice.setText(String.format(getString(R.string.pinpailingjian), bean.getPrice() + ""));
-        mBinding.tvGuzhangDetailsWeixiuShichang.setText(bean.getBtx1());
+        mBinding.tvGuzhangDetailsWeixiuShichang.setText(String.format(getString(R.string.yujiyongshi), bean.getBtx1()));
     }
 
     @Override
@@ -124,6 +124,10 @@ public class GuZhangDetailsActivity extends BaseActivity implements GuZhangView,
 
     //显示品牌列表
     private void showPinpaiList(View v) {
+        if (parts.getSparePartsList() == null || parts.getSparePartsList().size() == 0) {
+            return;
+        }
+
         if (popupWindow != null && popupWindow.isShowing()) {
             return;
         }
