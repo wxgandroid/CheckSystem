@@ -65,7 +65,6 @@ public class MainActivity extends BaseActivity implements MainActivityView, View
 //        }
         ll_main.setVisibility(View.VISIBLE);
 
-
     }
 
 

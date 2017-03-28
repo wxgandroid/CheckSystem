@@ -7,6 +7,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.ParcelUuid;
 import android.os.SystemClock;
 import android.util.Log;
@@ -67,6 +70,7 @@ public class CheckingFragmentPresenter extends CheckPresenter implements RxUtils
     private long uploadTime;
 
     private ArrayList<ParseCheckResultBean> mList = new ArrayList<>();
+    private Ringtone mRingtone;
 
     public CheckingFragmentPresenter(CheckingFragmentView view, Context context) {
         super(view, context);
@@ -322,7 +326,7 @@ public class CheckingFragmentPresenter extends CheckPresenter implements RxUtils
                     Log.e("TAG", "result:" + result);
                     params.put(Constants.UPLOAD_TESTDATA, result);
                     RxUtils.getInstance().get(Constants.BASE_URL, Constants.APP_INTERFACE_CHECK_RESULT, params, CheckingFragmentPresenter.this, CheckResultBean.class);
-                }else {
+                } else {
                     showFragment(Constants.FRAGMENT_NOBLUETOOTH);
                 }
             }
@@ -386,6 +390,9 @@ public class CheckingFragmentPresenter extends CheckPresenter implements RxUtils
                 }
 
                 if ("true".equals(data.getMessage().getSuccess())) {
+                    Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+                    mRingtone = CommonUtils.playNotification(mContext);
+                    mRingtone.play();
                     mView.updateProgress(100);
                     //当请求文件成功，并且有数据的时候跳转到当前有问题的界面
                     Log.e("TAG", "onSuccess(),停止轮询器");
@@ -431,7 +438,7 @@ public class CheckingFragmentPresenter extends CheckPresenter implements RxUtils
 
             @Override
             public void onComplete() {
-
+                mRingtone = null;
             }
         }, RequestResultBean.class);
     }

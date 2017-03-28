@@ -7,6 +7,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
@@ -412,4 +414,8 @@ public class CommonUtils {
         context.startActivity(intent);
     }
 
+    public static Ringtone playNotification(Context context) {
+        Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        return RingtoneManager.getRingtone(context, notification);
+    }
 }
