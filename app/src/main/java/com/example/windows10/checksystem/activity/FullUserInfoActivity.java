@@ -69,6 +69,8 @@ public class FullUserInfoActivity extends BaseActivity implements FullUserInfoVi
 
     private int modelsID = -1;
 
+    private boolean popupIsShowing = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,24 +95,18 @@ public class FullUserInfoActivity extends BaseActivity implements FullUserInfoVi
 
     @Override
     public void onClick(View v) {
+        dismissPopupwindow();
         switch (v.getId()) {
             case R.id.tv_full_userinfo_sex:
                 //选择性别
-                dismissPopupwindow();
                 mPresenter.choiceSex();
                 break;
-//            case R.id.tv_full_userinfo_birth:
-//                //选择生日
-//                mPresenter.choiceBirth();
-//                break;
             case R.id.tv_full_userinfo_color:
                 //选择颜色
-                dismissPopupwindow();
                 mPresenter.choiceColor();
                 break;
             case R.id.btn_full_userinfo:
                 //将个人资料提交到服务器
-                dismissPopupwindow();
                 initUserInfo();
                 mPresenter.fullUserInfo(mUserName, mUserPassword, mUserAge, mUserCharacters,
                         mUserSex, mUserPhoneNum, mUserHobby, mUserAddress, mUserBluetooth,
@@ -120,69 +116,46 @@ public class FullUserInfoActivity extends BaseActivity implements FullUserInfoVi
             case R.id.tv_choice_sex_male:
                 //选择为男性
                 mBinding.tvFullUserinfoSex.setText("男");
-                dismissPopupwindow();
                 break;
             case R.id.tv_choice_sex_female:
                 //选择为女性
                 mBinding.tvFullUserinfoSex.setText("女");
-                dismissPopupwindow();
                 break;
-            case R.id.fl_choice_sex:
-            case R.id.tv_choice_sex_cancel:
-            case R.id.btn_choice_birth_cancel:
-                //取消popupWindow的显示
-                dismissPopupwindow();
-                break;
-//            case R.id.btn_choice_birth_submit:
-//                //选择了出生日期
-//                mBinding.tvFullUserinfoBirth.setText(CommonUtils.getBirthDay());
-//                mPopupWindow.dismiss();
-//                break;
             case R.id.tv_choice_color_black:
                 mBinding.tvFullUserinfoColor.setText("黑色");
-                dismissPopupwindow();
                 break;
             case R.id.tv_choice_color_white:
                 mBinding.tvFullUserinfoColor.setText("白色");
-                dismissPopupwindow();
                 break;
             case R.id.tv_choice_color_red:
                 mBinding.tvFullUserinfoColor.setText("红色");
-                dismissPopupwindow();
                 break;
             case R.id.tv_choice_color_yellow:
                 mBinding.tvFullUserinfoColor.setText("黄色");
-                dismissPopupwindow();
                 break;
             case R.id.tv_choice_color_cancel:
-                dismissPopupwindow();
                 break;
             case R.id.tv_full_userinfo_age:
-                dismissPopupwindow();
                 mPresenter.choiceAge();
                 break;
             case R.id.tv_choice_young:
-                dismissPopupwindow();
                 mBinding.tvFullUserinfoAge.setText("青年");
                 break;
             case R.id.tv_choice_zhongnian:
-                dismissPopupwindow();
                 mBinding.tvFullUserinfoAge.setText("中年");
                 break;
             case R.id.tv_choice_old:
-                dismissPopupwindow();
                 mBinding.tvFullUserinfoAge.setText("老年");
                 break;
-            case R.id.tv_choice_old_cancel:
-                dismissPopupwindow();
-                break;
             case R.id.iv_title_back:
-                dismissPopupwindow();
                 finishPager();
                 break;
             case R.id.tv_full_userinfo_carbrand:
                 //选择了汽车品牌按钮
-                dismissPopupwindow();
+                if (popupIsShowing) {
+                    return;
+                }
+                popupIsShowing = true;
                 mPresenter.showCarBrand();
                 break;
             case R.id.tv_full_userinfo_car_id:
@@ -190,7 +163,10 @@ public class FullUserInfoActivity extends BaseActivity implements FullUserInfoVi
                 if (modelsID == -1) {
                     return;
                 }
-                dismissPopupwindow();
+                if (popupIsShowing) {
+                    return;
+                }
+                popupIsShowing = true;
                 mPresenter.showCarId(modelsID);
                 break;
         }
@@ -242,7 +218,7 @@ public class FullUserInfoActivity extends BaseActivity implements FullUserInfoVi
 
     @Override
     public void showChoiceColorWindow() {
-        int[] ress = {R.id.tv_choice_color_black, R.id.tv_choice_color_red, R.id.tv_choice_color_white, R.id.tv_choice_color_yellow};
+        int[] ress = {R.id.tv_choice_color_black, R.id.tv_choice_color_red, R.id.tv_choice_color_white, R.id.tv_choice_color_yellow, R.id.tv_choice_color_cancel};
         mPopupWindow = CommonUtils.showPopupWindow(this, R.layout.choice_color_layout, this, ress, 0, 0);
     }
 
@@ -259,6 +235,7 @@ public class FullUserInfoActivity extends BaseActivity implements FullUserInfoVi
     public void dismissPopupwindow() {
         if (mPopupWindow != null && mPopupWindow.isShowing()) {
             mPopupWindow.dismiss();
+            popupIsShowing = false;
         }
     }
 
@@ -331,9 +308,7 @@ public class FullUserInfoActivity extends BaseActivity implements FullUserInfoVi
     }
 
     public void setCarsBrand(String models, int id) {
-        if (mPopupWindow != null) {
-            mPopupWindow.dismiss();
-        }
+        dismissPopupwindow();
         mBinding.tvFullUserinfoCarbrand.setText(models);
         mBinding.tvFullUserinfoCarId.setText("");
         modelsID = id;
@@ -341,9 +316,7 @@ public class FullUserInfoActivity extends BaseActivity implements FullUserInfoVi
     }
 
     public void setCarsID(String models, int id) {
-        if (mPopupWindow != null) {
-            mPopupWindow.dismiss();
-        }
+        dismissPopupwindow();
         mBinding.tvFullUserinfoCarId.setText(models);
         modelsID = id;
         mUserBrandId = id + "";

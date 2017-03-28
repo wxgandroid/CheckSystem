@@ -42,6 +42,7 @@ public class Constants {
     public static final String APP_INTERFACE_DETAILS_CHECK_ALL = "appProblem/getAppProblemAll" + APP_INTERFACE_LASTED;
     public static final String APP_INTERFACE_KNOWLEDGE_ALL = "appKnowledgeBase/getAppAllKnowledgeBase" + APP_INTERFACE_LASTED;
     public static final String APP_INTERFACE_KNOWLEDGE_ID = "appKnowledgeBase/getAppKnowledgeBaseId" + APP_INTERFACE_LASTED;
+    public static final String APP_INTERFACE_SHOW_PROBLEM = "appProblem/getAppQueryProblem" + APP_INTERFACE_LASTED;
 
     //activity跳转的requestCode
     public static final int TO_REGIST_CODE = 100;
@@ -80,6 +81,8 @@ public class Constants {
     public static final String LATTITUDE = "latitude";
     public static final String LONGITUDE = "longitude";
 
+    //查询问题解决方案的字段
+    public static final String PROBLEM_NAME = "problemName";
 
     //检查页面fragment对应的编号
     public static final int FRAGMENT_CHECKING = 0;
@@ -101,6 +104,8 @@ public class Constants {
     public static final String INTENT_DETAILS_CHECK_ALL = "intent_details_check_all";
     public static final String INTENT_KNOWLEDGE_DETAILS = "intent_knowledge_details";
     public static final String INTENT_SHOW_RECOMMEND = "intent_show_recommend";
+    public static final String INTENT_SHOW_PROBLEM_SUBSTRING = "intent_show_problem_substring";
+    public static final String INTENT_SHOW_PROBLEM_CUSTOM = "intent_show_problem_custom";
 
 
     //给OBD发送的消息

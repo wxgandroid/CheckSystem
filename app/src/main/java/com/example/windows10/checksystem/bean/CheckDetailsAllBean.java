@@ -103,6 +103,15 @@ public class CheckDetailsAllBean {
         private String partsName;
         private String problemName;
         private List<VoiceListBean> voiceList;
+        private boolean isChecked;
+
+        public boolean isChecked() {
+            return isChecked;
+        }
+
+        public void setChecked(boolean checked) {
+            isChecked = checked;
+        }
 
         public String getAnalysis() {
             return analysis;

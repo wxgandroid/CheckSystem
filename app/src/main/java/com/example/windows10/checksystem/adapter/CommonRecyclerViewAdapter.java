@@ -54,8 +54,14 @@ public abstract class CommonRecyclerViewAdapter<T extends ViewDataBinding, V ext
         if (mData != null) {
             mData.clear();
         }
-        mData.addAll(list);
+        if (list != null) {
+            mData.addAll(list);
+        }
         notifyDataSetChanged();
+    }
+
+    public List<V> getData() {
+        return mData;
     }
 
 

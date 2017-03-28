@@ -301,6 +301,8 @@ public class MapviewActivity extends BaseActivity implements LocationSource, AMa
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        mlocationClient.stopLocation();
+        mlocationClient.onDestroy();
         mBinding.mapView.onDestroy();
     }
 

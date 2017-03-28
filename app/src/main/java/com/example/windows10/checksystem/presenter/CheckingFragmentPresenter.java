@@ -173,7 +173,22 @@ public class CheckingFragmentPresenter extends CheckPresenter implements RxUtils
                     mView.showToast("连接失败，请重试");
 
                 }
+            } else if (BluetoothAdapter.ACTION_STATE_CHANGED.equals(action)) {
+                int blueState = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, 0);
+                switch (blueState) {
+                    case BluetoothAdapter.STATE_TURNING_ON:
+                    case BluetoothAdapter.STATE_ON:
+
+                        break;
+                    case BluetoothAdapter.STATE_TURNING_OFF:
+                    case BluetoothAdapter.STATE_OFF:
+                        SystemApplication.BLUETOOTH_STATUS = Constants.BLUE_TOOTH_IS_CLOSED;
+                        break;
+                }
+
             }
+
+
         }
     };
 
@@ -419,7 +434,6 @@ public class CheckingFragmentPresenter extends CheckPresenter implements RxUtils
                         mList.add(JSON.parseObject(s, ParseCheckResultBean.class));
                     }
 
-//                    showFragment(Constants.FRAGMENT_NOPROBLEM);
                     if (mList != null && mList.size() > 0) {
                         ((CheckingActivity) mContext).setResultBeens(mList);
                         showFragment(Constants.FRAGMENT_HASPROBLEM);

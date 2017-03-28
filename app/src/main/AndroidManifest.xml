@@ -48,7 +48,7 @@
         <activity android:name=".activity.RegistActivity" />
         <activity android:name=".activity.ForgetPasswordActivity" />
         <activity android:name=".activity.FullUserInfoActivity" />
-        <activity android:name=".activity.CheckingActivity"></activity>
+        <activity android:name=".activity.CheckingActivity" />
         <activity android:name=".activity.IPRegistActivity" />
         <activity android:name=".activity.EasyDestroyListActivity" />
         <activity android:name=".activity.FactoryDetailsActivity" />
@@ -58,7 +58,7 @@
             android:configChanges="orientation|screenSize"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity android:name=".activity.LingjianIntroduceActivity" />
-        <activity android:name=".activity.CarsKnowledgeActivity"></activity>
+        <activity android:name=".activity.CarsKnowledgeActivity" />
         <activity android:name=".activity.GuideActivity" />
         <activity android:name=".activity.GuZhangDetailsActivity" />
 
@@ -67,7 +67,8 @@
         <activity android:name=".activity.MapviewActivity" />
         <activity android:name=".activity.DetailsCheckActivity" />
         <activity android:name=".activity.MusicePlayActivity" />
-        <activity android:name=".activity.KnowledgeDetailsActivity"></activity>
+        <activity android:name=".activity.KnowledgeDetailsActivity" />
+        <activity android:name=".activity.ShowProblemsActivity"></activity>
     </application>
 
 </manifest>
