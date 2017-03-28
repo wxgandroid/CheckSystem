@@ -47,7 +47,6 @@ public class GuideActivity extends BaseActivity implements MapGuideView, AMapNav
     private NaviLatLng start;
     private NaviLatLng end;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,22 +57,22 @@ public class GuideActivity extends BaseActivity implements MapGuideView, AMapNav
         mIntent = getIntent();
         mBinding.includeGuide.tvTitleTitle.setText("导航");
         mBinding.includeGuide.ivTitleBack.setOnClickListener(this);
-//        mBean = (RecommendFactoryBean.FactoryListBean) mIntent.getSerializableExtra(Constants.INTENT_GUIDE);
         mBinding.mapView.setAMapNaviViewListener(this);
         double[] lattitudes = mIntent.getDoubleArrayExtra(Constants.INTENT_LATTITUDE);
         double[] longitudes = mIntent.getDoubleArrayExtra(Constants.INTENT_LONGITUDE);
         //添加起点和终点坐标
-        start = new NaviLatLng(39.96128, 116.308386);
+        start = new NaviLatLng(lattitudes[0], longitudes[0]);
         sList.add(start);
-        end = new NaviLatLng(40, 116.5);
+        end = new NaviLatLng(lattitudes[1], longitudes[1]);
+        Log.e("TAG", "导航终点的坐标为：" + lattitudes[1] + ":" + longitudes[1]);
         eList.add(end);
-
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         mBinding.mapView.onDestroy();
+        mAMapNavi.destroy();
     }
 
     @Override

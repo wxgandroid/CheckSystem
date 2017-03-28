@@ -19,7 +19,7 @@ import java.util.ArrayList;
  *
  */
 public class CheckPresenter extends BasePresenter {
-    private CheckView mView;
+    public CheckView mView;
     private BluetoothAdapter bluetoothAdapter;
 
     public CheckPresenter(CheckView view, Context context) {

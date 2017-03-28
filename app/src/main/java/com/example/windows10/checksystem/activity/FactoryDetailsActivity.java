@@ -22,6 +22,8 @@ public class FactoryDetailsActivity extends BaseActivity implements FactoryDetai
     private RecommendFactoryBean.FactoryListBean mBean;
     private FactoryDetailsPresenter mPresenter;
     private String partID;
+    private double latitude;
+    private double longitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,8 @@ public class FactoryDetailsActivity extends BaseActivity implements FactoryDetai
         mIntent = getIntent();
         partID = mIntent.getStringExtra(Constants.INTENT_PARTS_ID);
         mBean = (RecommendFactoryBean.FactoryListBean) mIntent.getSerializableExtra(Constants.INTENT_FACTORY_INFO);
+        latitude = mIntent.getDoubleExtra(Constants.LATTITUDE, -1);
+        longitude = mIntent.getDoubleExtra(Constants.LONGITUDE, -1);
         initView();
         updatePagers(mBean);
     }
@@ -85,11 +89,17 @@ public class FactoryDetailsActivity extends BaseActivity implements FactoryDetai
                 break;
             case R.id.tv_factory_details_address:
                 //开始进行导航
-                mBean.getCoordinateX();
-                mBean.getCoordinateY();
                 if (mIntent == null) {
                     mIntent = new Intent();
                 }
+                double[] latitudes = new double[2];
+                double[] longitudes = new double[2];
+                latitudes[0] = latitude;
+                latitudes[1] = mBean.getCoordinateX();
+                longitudes[0] = longitude;
+                longitudes[1] = mBean.getCoordinateY();
+                mIntent.putExtra(Constants.INTENT_LATTITUDE, latitudes);
+                mIntent.putExtra(Constants.INTENT_LONGITUDE, longitudes);
                 CommonUtils.toOtherActivity(this, GuideActivity.class, mIntent);
                 break;
 

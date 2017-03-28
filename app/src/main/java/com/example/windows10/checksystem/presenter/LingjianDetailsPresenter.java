@@ -38,9 +38,6 @@ public class LingjianDetailsPresenter extends BasePresenter implements RxUtils.L
 
     //点击事件处理
     public void onClick(View view) {
-        if (!clickable) {
-            return;
-        }
         switch (view.getId()) {
             case R.id.tv_zixiu_zhidao:
                 if (videoBean == null) {
@@ -61,15 +58,28 @@ public class LingjianDetailsPresenter extends BasePresenter implements RxUtils.L
                     mIntent = new Intent();
                 }
                 mIntent.putExtra(Constants.INTENT_PARTS_ID, parts);
-                CommonUtils.toOtherActivity((Activity) mContext, LingjianIntroduceActivity.class);
+                CommonUtils.toOtherActivity((Activity) mContext, LingjianIntroduceActivity.class, mIntent);
                 break;
             case R.id.tv_tuijian_qixiu:
+                if (mIntent == null) {
+                    mIntent = new Intent();
+                }
+                mIntent.putExtra(Constants.INTENT_SHOW_RECOMMEND, true);
+                CommonUtils.toOtherActivity((Activity) mContext, MapviewActivity.class, mIntent);
+                break;
             case R.id.tv_other_qixiu:
                 //点击了选择其他汽修厂的按钮
-                CommonUtils.toOtherActivity((Activity) mContext, MapviewActivity.class);
+                if (mIntent == null) {
+                    mIntent = new Intent();
+                }
+                mIntent.putExtra(Constants.INTENT_SHOW_RECOMMEND, false);
+                CommonUtils.toOtherActivity((Activity) mContext, MapviewActivity.class, mIntent);
                 break;
             case R.id.tv_lingjian_details_pinpai:
                 mView.showPinpaiList(view);
+                break;
+            case R.id.iv_title_back:
+                mView.finishPager();
                 break;
 
         }

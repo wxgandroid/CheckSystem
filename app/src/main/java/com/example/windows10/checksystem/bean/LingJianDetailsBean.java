@@ -287,7 +287,7 @@ public class LingJianDetailsBean {
             this.sparePartsList = sparePartsList;
         }
 
-        public static class CreateTimeBean {
+        public static class CreateTimeBean implements Serializable{
             /**
              * date : 28
              * day : 2
@@ -498,7 +498,7 @@ public class LingJianDetailsBean {
                 this.videoName = videoName;
             }
 
-            public static class CreateTimeBeanX {
+            public static class CreateTimeBeanX implements Serializable{
                 /**
                  * date : 2
                  * day : 4
@@ -595,7 +595,7 @@ public class LingJianDetailsBean {
             }
         }
 
-        public static class SparePartsListBean {
+        public static class SparePartsListBean implements Serializable{
             /**
              * brandId : 1
              * brandName :
@@ -850,7 +850,7 @@ public class LingJianDetailsBean {
                 this.sparePartsList = sparePartsList;
             }
 
-            public static class CreateTimeBeanXX {
+            public static class CreateTimeBeanXX implements Serializable{
                 /**
                  * date : 28
                  * day : 2

@@ -317,10 +317,14 @@ public class CheckingFragmentPresenter extends CheckPresenter implements RxUtils
                 params.put(Constants.ID, SystemApplication.USER_ID + "");
                 uploadTime = System.currentTimeMillis();
                 params.put(Constants.UPLOAD_DETECTIONTIME, uploadTime + "");
-                String result = rawData.toString().substring(0, rawData.toString().length() - 1);
-                Log.e("TAG", "result:" + result);
-                params.put(Constants.UPLOAD_TESTDATA, result);
-                RxUtils.getInstance().get(Constants.BASE_URL, Constants.APP_INTERFACE_CHECK_RESULT, params, CheckingFragmentPresenter.this, CheckResultBean.class);
+                if (!CommonUtils.isEmpty(rawData.toString())) {
+                    String result = rawData.toString().substring(0, rawData.toString().length() - 1);
+                    Log.e("TAG", "result:" + result);
+                    params.put(Constants.UPLOAD_TESTDATA, result);
+                    RxUtils.getInstance().get(Constants.BASE_URL, Constants.APP_INTERFACE_CHECK_RESULT, params, CheckingFragmentPresenter.this, CheckResultBean.class);
+                }else {
+                    showFragment(Constants.FRAGMENT_NOBLUETOOTH);
+                }
             }
 
             @Override

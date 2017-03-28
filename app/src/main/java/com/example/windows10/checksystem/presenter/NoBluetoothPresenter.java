@@ -44,7 +44,7 @@ public class NoBluetoothPresenter extends CheckPresenter {
 
     //本人不在车前
     public void notFront() {
-
+        mView.showToast("请到车前重新尝试连接");
     }
 
     public void toEasyDestroyActivity() {

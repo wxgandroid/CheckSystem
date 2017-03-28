@@ -31,6 +31,7 @@ public class LingjianIntroduceActivity extends BaseActivity implements LingjianD
 
     private void initView() {
         mBinding.includeLingjianTopTitle.tvTitleTitle.setText(getString(R.string.lingjian_introduce));
+        mBinding.includeLingjianTopTitle.ivTitleBack.setOnClickListener(this);
 //        mBinding.includeZixiu.tvZixiuZhidao.setOnClickListener(this);
 //        mBinding.includeZixiu.tvLingjianZuoyong.setOnClickListener(this);
 //        mBinding.includeZixiu.tvTuijianQixiu.setOnClickListener(this);

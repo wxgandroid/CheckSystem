@@ -65,6 +65,11 @@ public class MapviewActivity extends BaseActivity implements LocationSource, AMa
         mBinding.btnSwitchTuijian.setOnClickListener(this);
         mBinding.includeMapview.tvTitleTitle.setText("导航");
         mBinding.includeMapview.ivTitleBack.setOnClickListener(this);
+        if (showRecommend) {
+            mBinding.btnSwitchTuijian.setText("其他汽修厂");
+        } else {
+            mBinding.btnSwitchTuijian.setText("推荐汽修厂");
+        }
         initLocation();
     }
 
@@ -226,12 +231,6 @@ public class MapviewActivity extends BaseActivity implements LocationSource, AMa
                 return true;
             }
         });
-//        atitudes[0] = latitude - 0.01;
-//        longitudes[0] = longitude - 0.01;
-//        atitudes[1] = latitude - 0.01;
-//        longitudes[1] = longitude + 0.01;
-//        atitudes[2] = latitude + 0.01;
-//        longitudes[2] = longitude + 0.01;
         mMarkers.clear();
         aMap.clear();
         for (int i = 0; i < atitudes.length; i++) {
@@ -269,7 +268,7 @@ public class MapviewActivity extends BaseActivity implements LocationSource, AMa
                 break;
             case R.id.iv_map_info:
                 dismissMarker();
-                toFactoryDetails(makerPosition,partsID);
+                toFactoryDetails(makerPosition, partsID);
                 break;
             case R.id.iv_title_back:
                 finish();
@@ -307,9 +306,7 @@ public class MapviewActivity extends BaseActivity implements LocationSource, AMa
 
     //跳转到导航页面
     public void toGuideActivity(int makerPosition, double latitude, double longitude) {
-        if (mIntent == null) {
-            mIntent = new Intent();
-        }
+        mIntent = new Intent();
         RecommendFactoryBean.FactoryListBean factoryListBean = mData.getFactoryList().get(makerPosition);
 
         double[] latitudes = new double[2];
@@ -341,8 +338,10 @@ public class MapviewActivity extends BaseActivity implements LocationSource, AMa
         if (mIntent == null) {
             mIntent = new Intent();
         }
-        mIntent.putExtra(Constants.INTENT_PARTS_ID,partsID);
+        mIntent.putExtra(Constants.INTENT_PARTS_ID, partsID);
         mIntent.putExtra(Constants.INTENT_FACTORY_INFO, mData.getFactoryList().get(makerPosition));
+        mIntent.putExtra(Constants.LATTITUDE, latitude);
+        mIntent.putExtra(Constants.LONGITUDE, longitude);
         CommonUtils.toOtherActivity(this, FactoryDetailsActivity.class, mIntent);
     }
 

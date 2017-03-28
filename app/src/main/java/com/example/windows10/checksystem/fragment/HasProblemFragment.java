@@ -201,7 +201,7 @@ public class HasProblemFragment extends BaseFragment implements View.OnClickList
                 break;
             case R.id.iv_map_info:
                 dismissMarker();
-                mPresenter.toFactoryDetails(makerPosition, mList.get(mBinding.vpDestroyList.getCurrentItem()).getPartsId());
+                mPresenter.toFactoryDetails(makerPosition, mList.get(mBinding.vpDestroyList.getCurrentItem()).getPartsId(),latitude,longitude);
                 break;
 
         }
