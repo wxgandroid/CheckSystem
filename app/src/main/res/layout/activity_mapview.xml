@@ -20,9 +20,17 @@
                 android:layout_height="match_parent" />
 
             <Button
+                android:background="@drawable/mapview_activity_button_shape"
                 android:id="@+id/btn_switch_tuijian"
+                android:paddingLeft="@dimen/m15dp"
+                android:drawablePadding="@dimen/m10dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/m15dp"
+                android:textColor="@color/font_white"
+                android:layout_height="@dimen/m40dp"
+                android:layout_marginBottom="@dimen/m15dp"
+                android:textSize="@dimen/m18sp"
+                android:drawableRight="@drawable/mapview_tap_icon"
                 android:layout_gravity="bottom|center_horizontal"
                 android:text="推荐汽修厂" />
 
