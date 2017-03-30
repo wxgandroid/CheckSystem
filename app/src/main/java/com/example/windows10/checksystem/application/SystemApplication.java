@@ -18,9 +18,9 @@ public class SystemApplication extends Application implements RxUtils.LoadingNet
     //记录当前用户的车辆型号
     public static int USER_BRAND_ID = -1;
 
-    public static String BASE_VIDEO_URL;
-    public static String BASE_PIC_URL;
-    public static String BASE_AUDIO_URL;
+    private String BASE_VIDEO_URL;
+    private String BASE_PIC_URL;
+    private String BASE_AUDIO_URL;
     public static double CHECK_TIMES;
     public static double CHECK_FREQUENTS;
     public static SystemApplication instance;
@@ -34,6 +34,31 @@ public class SystemApplication extends Application implements RxUtils.LoadingNet
 
     public static SystemApplication getInstance() {
         return instance;
+    }
+
+
+    public String getBASE_VIDEO_URL() {
+        return BASE_VIDEO_URL;
+    }
+
+    public void setBASE_VIDEO_URL(String BASE_VIDEO_URL) {
+        this.BASE_VIDEO_URL = BASE_VIDEO_URL;
+    }
+
+    public String getBASE_PIC_URL() {
+        return BASE_PIC_URL;
+    }
+
+    public void setBASE_PIC_URL(String BASE_PIC_URL) {
+        this.BASE_PIC_URL = BASE_PIC_URL;
+    }
+
+    public String getBASE_AUDIO_URL() {
+        return BASE_AUDIO_URL;
+    }
+
+    public void setBASE_AUDIO_URL(String BASE_AUDIO_URL) {
+        this.BASE_AUDIO_URL = BASE_AUDIO_URL;
     }
 
     @Override

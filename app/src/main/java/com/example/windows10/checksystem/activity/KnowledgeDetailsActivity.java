@@ -69,7 +69,7 @@ public class KnowledgeDetailsActivity extends BaseActivity implements KnowledgeD
     @Override
     public void updatePagers(KnowledgeDetailsBean data) {
         mBinding.tvKnowledgeDetails.setText(data.getKnowledgeBase().getKnowledgeName());
-        Glide.with(this).load(SystemApplication.BASE_PIC_URL + data.getKnowledgeBase().getPictureAddress()).into(mBinding.ivKnowledgeDetails);
+        Glide.with(this).load(SystemApplication.getInstance().getBASE_PIC_URL() + data.getKnowledgeBase().getPictureAddress()).into(mBinding.ivKnowledgeDetails);
         String introduce = data.getKnowledgeBase().getIntroduce();
         String[] split = introduce.split(",");
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);

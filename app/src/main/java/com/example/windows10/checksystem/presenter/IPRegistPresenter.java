@@ -2,6 +2,7 @@ package com.example.windows10.checksystem.presenter;
 
 import android.content.Context;
 
+import com.example.windows10.checksystem.application.SystemApplication;
 import com.example.windows10.checksystem.bean.SystemConfigBean;
 import com.example.windows10.checksystem.constant.Constants;
 import com.example.windows10.checksystem.view.IPRegistView;
@@ -50,6 +51,9 @@ public class IPRegistPresenter extends BasePresenter implements RxUtils.LoadingN
 
     @Override
     public void onSuccess(SystemConfigBean data) {
+        SystemApplication.getInstance().setBASE_PIC_URL(data.getSystem().getPicturePath());
+        SystemApplication.getInstance().setBASE_AUDIO_URL(data.getSystem().getAudioPath());
+        SystemApplication.getInstance().setBASE_VIDEO_URL(data.getSystem().getVideoPath());
     }
 
     @Override

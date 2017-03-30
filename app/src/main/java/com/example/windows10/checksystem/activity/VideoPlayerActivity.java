@@ -30,7 +30,7 @@ public class VideoPlayerActivity extends BaseActivity {
             finish();
             return;
         }
-        String url = SystemApplication.BASE_VIDEO_URL + videoBean.getVideoAddress();
+        String url = SystemApplication.getInstance().getBASE_VIDEO_URL()+ videoBean.getVideoAddress();
         if (CommonUtils.isEmpty(url)) {
             Toast.makeText(VideoPlayerActivity.this, "视频文件地址为空", Toast.LENGTH_SHORT).show();
             finish();

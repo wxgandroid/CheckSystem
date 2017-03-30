@@ -61,7 +61,7 @@ public class FactoryDetailsActivity extends BaseActivity implements FactoryDetai
         mBinding.tvFactoryDetailsIntro.setText(bean.getIntroduce());
         mBinding.tvFactoryDetailsPhone.setText(bean.getPhone());
         mBinding.tvFactoryDetailsAddress.setText(bean.getFactoryAddress());
-        Glide.with(this).load(SystemApplication.BASE_PIC_URL + mBean.getPicture()).into(mBinding.ivFactoryPhotos);
+        Glide.with(this).load(SystemApplication.getInstance().getBASE_PIC_URL() + mBean.getPicture()).into(mBinding.ivFactoryPhotos);
     }
 
     @Override

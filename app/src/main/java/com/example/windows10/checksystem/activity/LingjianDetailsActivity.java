@@ -72,7 +72,7 @@ public class LingjianDetailsActivity extends BaseActivity implements View.OnClic
 
     @Override
     public void updateUI(LingJianDetailsBean.SparePartsBean bean) {
-        Glide.with(this).load(SystemApplication.BASE_PIC_URL + bean.getPartPicture()).into(mBinding.ivLingjianDetailsPic);
+        Glide.with(this).load(SystemApplication.getInstance().getBASE_PIC_URL() + bean.getPartPicture()).into(mBinding.ivLingjianDetailsPic);
         //型号
         mBinding.tvLingjianDetailsXinghao.setText(String.format(getString(R.string.lingjian_xinghao), bean.getModel()));
         //规格
@@ -107,8 +107,8 @@ public class LingjianDetailsActivity extends BaseActivity implements View.OnClic
 
     public void updateUI(LingJianDetailsBean.SparePartsBean.SparePartsListBean bean) {
         dismissPopupWindow();
-        Log.e("TAG", "图片地址为：" + SystemApplication.BASE_PIC_URL + bean.getPartPicture());
-        Glide.with(this).load(SystemApplication.BASE_PIC_URL + bean.getPartPicture()).into(mBinding.ivLingjianDetailsPic);
+        Log.e("TAG", "图片地址为：" + SystemApplication.getInstance().getBASE_PIC_URL() + bean.getPartPicture());
+        Glide.with(this).load(SystemApplication.getInstance().getBASE_PIC_URL() + bean.getPartPicture()).into(mBinding.ivLingjianDetailsPic);
         //型号
         mBinding.tvLingjianDetailsXinghao.setText(String.format(getString(R.string.lingjian_xinghao), bean.getModel()));
         //规格

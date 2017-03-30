@@ -44,7 +44,7 @@ public class CarsKnowledgeAdapter extends RecyclerView.Adapter<CarsKnowledgeAdap
     @Override
     public void onBindViewHolder(CarsKnowledgeViewHolder holder, int position) {
         holder.mBinding.tvCarKnowledge.setText(mData.get(position).getKnowledgeName());
-        Glide.with(mContext).load(SystemApplication.BASE_PIC_URL + mData.get(position).getPictureAddress())
+        Glide.with(mContext).load(SystemApplication.getInstance().getBASE_PIC_URL() + mData.get(position).getPictureAddress())
                 .into(holder.mBinding.ivCarKnowledge);
         holder.mBinding.ivCarKnowledge.setTag(R.id.position_tag, position);
         holder.mBinding.ivCarKnowledge.setOnClickListener(this);

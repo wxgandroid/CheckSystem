@@ -39,7 +39,7 @@ public class LingjianIntroduceActivity extends BaseActivity implements LingjianD
         if (mBean == null) {
             return;
         }
-        Glide.with(this).load(SystemApplication.BASE_PIC_URL + mBean.getPartPicture()).into(mBinding.ivLingjianImage);
+        Glide.with(this).load(SystemApplication.getInstance().getBASE_PIC_URL() + mBean.getPartPicture()).into(mBinding.ivLingjianImage);
         mBinding.tvLingjianName.setText(mBean.getBrandName());
         mBinding.tvLingjianIntroduce.setText(mBean.getIntroduce());
     }

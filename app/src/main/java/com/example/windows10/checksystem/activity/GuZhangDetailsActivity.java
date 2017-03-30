@@ -62,8 +62,8 @@ public class GuZhangDetailsActivity extends BaseActivity implements GuZhangView,
 
     @Override
     public void updateUI(LingJianDetailsBean.SparePartsBean bean) {
-        Log.e("TAG", "图片地址为：" + SystemApplication.BASE_PIC_URL + bean.getPartPicture());
-        Glide.with(this).load(SystemApplication.BASE_PIC_URL + bean.getPartPicture()).into(mBinding.ivGuzhangDetailsPic);
+        Log.e("TAG", "图片地址为：" + SystemApplication.getInstance().getBASE_PIC_URL() + bean.getPartPicture());
+        Glide.with(this).load(SystemApplication.getInstance().getBASE_PIC_URL() + bean.getPartPicture()).into(mBinding.ivGuzhangDetailsPic);
         mBinding.tvGuzhangDetailsXinghao.setText(String.format(getString(R.string.lingjian_xinghao), bean.getModel()));
         mBinding.tvGuzhangDetailsGuige.setText(String.format(getString(R.string.lingjian_guige), bean.getSpecifications()));
 
@@ -78,8 +78,8 @@ public class GuZhangDetailsActivity extends BaseActivity implements GuZhangView,
 
     public void updateUI(LingJianDetailsBean.SparePartsBean.SparePartsListBean bean) {
         dismissPopupWindow();
-        Log.e("TAG", "图片地址为：" + SystemApplication.BASE_PIC_URL + bean.getPartPicture());
-        Glide.with(this).load(SystemApplication.BASE_PIC_URL + bean.getPartPicture()).into(mBinding.ivGuzhangDetailsPic);
+        Log.e("TAG", "图片地址为：" + SystemApplication.getInstance().getBASE_PIC_URL() + bean.getPartPicture());
+        Glide.with(this).load(SystemApplication.getInstance().getBASE_PIC_URL() + bean.getPartPicture()).into(mBinding.ivGuzhangDetailsPic);
         mBinding.tvGuzhangDetailsXinghao.setText(String.format(getString(R.string.lingjian_xinghao), bean.getModel()));
         mBinding.tvGuzhangDetailsGuige.setText(String.format(getString(R.string.lingjian_guige), bean.getSpecifications()));
         mBinding.tvGuzhangDetailsPinpai.setText(String.format(getString(R.string.pinpai_name), bean.getBrandName(), bean.getPrice(), bean.getGuaranteeDate()));

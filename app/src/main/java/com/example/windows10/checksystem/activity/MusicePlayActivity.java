@@ -89,8 +89,8 @@ public class MusicePlayActivity extends BaseActivity implements View.OnClickList
             mPlayer.setOnErrorListener(this);
 
         }
-        Log.e("TAG", "音频的地址为：" + SystemApplication.BASE_AUDIO_URL + voiceAddress);
-        Uri uri = Uri.parse(SystemApplication.BASE_AUDIO_URL + voiceAddress);
+        Log.e("TAG", "音频的地址为：" + SystemApplication.getInstance().getBASE_AUDIO_URL() + voiceAddress);
+        Uri uri = Uri.parse(SystemApplication.getInstance().getBASE_AUDIO_URL() + voiceAddress);
         try {
             if (mPlayer.isPlaying()) {
                 mPlayer.reset();
