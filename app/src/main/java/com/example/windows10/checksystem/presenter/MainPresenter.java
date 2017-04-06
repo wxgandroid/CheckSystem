@@ -10,6 +10,7 @@ import com.example.windows10.checksystem.activity.HomeActivity;
 import com.example.windows10.checksystem.activity.IPRegistActivity;
 import com.example.windows10.checksystem.application.SystemApplication;
 import com.example.windows10.checksystem.bean.LoginBean;
+import com.example.windows10.checksystem.bean.SystemConfigBean;
 import com.example.windows10.checksystem.constant.Constants;
 import com.example.windows10.checksystem.view.MainActivityView;
 import com.example.windows10.rx_retrofit_library.CommonUtils;
@@ -99,5 +100,29 @@ public class MainPresenter extends BasePresenter implements RxUtils.LoadingNetDa
     public void guiderLogin() {
         CommonUtils.toOtherActivity((Activity) mContext, HomeActivity.class);
         ((Activity) mContext).finish();
+    }
+
+    public void initSystemConfig() {
+        RxUtils.getInstance().get(Constants.BASE_URL, Constants.APP_INTERFACE_SYSTEM_CONFIG, null, new RxUtils.LoadingNetDataListener<SystemConfigBean>() {
+            @Override
+            public void onSuccess(SystemConfigBean data) {
+                SystemApplication.getInstance().setBASE_VIDEO_URL(data.getSystem().getVideoPath());
+                SystemApplication.getInstance().setBASE_PIC_URL(data.getSystem().getPicturePath());
+                SystemApplication.getInstance().setBASE_AUDIO_URL(data.getSystem().getAudioPath());
+                SystemApplication.getInstance().setBASE_VIDEO_URL(data.getSystem().getVideoPath());
+                SystemApplication.CHECK_TIMES = data.getSystem().getInspection_time();
+                SystemApplication.CHECK_FREQUENTS = data.getSystem().getInspection_frequency();
+            }
+
+            @Override
+            public void onError(String msg) {
+                mView.showToast("初始化系统配置失败，请重启应用" + msg);
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        }, SystemConfigBean.class);
     }
 }

@@ -78,7 +78,7 @@ public class LingjianDetailsActivity extends BaseActivity implements View.OnClic
         //规格
         mBinding.tvLingjianDetailsGuige.setText(String.format(getString(R.string.lingjian_guige), bean.getSpecifications()));
         //原厂价格
-        mBinding.tvLingjianDetailsYuanchangPriceTime.setText(String.format(getString(R.string.yuanchang_price), bean.getPrice(), bean.getGuaranteeDate()));
+        mBinding.tvLingjianDetailsYuanchangPriceTime.setText(String.format(getString(R.string.pinpai_name), bean.getBrandName(), bean.getPrice(), bean.getGuaranteeDate()));
         //品牌价格
         mBinding.tvLingjianDetailsPinpai.setText(String.format(getString(R.string.pinpai_name), bean.getBrandName(), bean.getPrice(), bean.getGuaranteeDate()));
         //维修时长
@@ -114,7 +114,7 @@ public class LingjianDetailsActivity extends BaseActivity implements View.OnClic
         //规格
         mBinding.tvLingjianDetailsGuige.setText(String.format(getString(R.string.lingjian_guige), bean.getSpecifications()));
         //品牌价格
-        mBinding.tvLingjianDetailsPinpai.setText(String.format(getString(R.string.lingjian_pinpai_price), bean.getPrice(), bean.getGuaranteeDate()));
+        mBinding.tvLingjianDetailsPinpai.setText(String.format(getString(R.string.pinpai_name), bean.getBrandName(), bean.getPrice(), bean.getGuaranteeDate()));
         //维修时长
         mBinding.tvLingjianDetailsWeixiuShichang.setText(String.format(getString(R.string.yuji_gonshi), bean.getBtx1(), bean.getGuaranteeDate()));
         //手工费

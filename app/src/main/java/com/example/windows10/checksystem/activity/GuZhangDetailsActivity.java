@@ -67,7 +67,7 @@ public class GuZhangDetailsActivity extends BaseActivity implements GuZhangView,
         mBinding.tvGuzhangDetailsXinghao.setText(String.format(getString(R.string.lingjian_xinghao), bean.getModel()));
         mBinding.tvGuzhangDetailsGuige.setText(String.format(getString(R.string.lingjian_guige), bean.getSpecifications()));
 
-        mBinding.tvGuzhangDetailsYuanchangPriceTime.setText(String.format(getString(R.string.yuanchang_price), bean.getPrice(), bean.getGuaranteeDate()));
+        mBinding.tvGuzhangDetailsYuanchangPriceTime.setText(String.format(getString(R.string.pinpai_name),bean.getBrandName(), bean.getPrice(), bean.getGuaranteeDate()));
         mBinding.tvGuzhangDetailsPinpai.setText(String.format(getString(R.string.pinpai_name), bean.getBrandName(), bean.getPrice(), bean.getGuaranteeDate()));
         mBinding.tvGuzhangDetailsShougongfei.setText(String.format(getString(R.string.shougongfei), bean.getManualPrice()));
         double totalPrice = bean.getPrice() + bean.getManualPrice();

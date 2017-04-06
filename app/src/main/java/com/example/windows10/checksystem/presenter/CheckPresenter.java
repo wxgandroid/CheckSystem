@@ -2,6 +2,8 @@ package com.example.windows10.checksystem.presenter;
 
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
+import android.os.SystemClock;
+import android.util.Log;
 
 import com.example.windows10.checksystem.application.SystemApplication;
 import com.example.windows10.checksystem.bean.ParseCheckResultBean;
@@ -13,7 +15,17 @@ import com.example.windows10.checksystem.fragment.NoBlueToothFragment;
 import com.example.windows10.checksystem.fragment.NoProblemFragment;
 import com.example.windows10.checksystem.view.CheckView;
 
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
+
 import java.util.ArrayList;
+
+import io.reactivex.BackpressureStrategy;
+import io.reactivex.Flowable;
+import io.reactivex.FlowableEmitter;
+import io.reactivex.FlowableOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  *
@@ -61,16 +73,57 @@ public class CheckPresenter extends BasePresenter {
             mView.showFragment(BaseFragment.instance(mContext, NoBlueToothFragment.class));
             //不支持蓝牙
             SystemApplication.BLUETOOTH_STATUS = Constants.BLUE_TOOTH_NOT_SUPPORT;
+            return;
 
-        } else if (!bluetoothAdapter.isEnabled()) {
-            //蓝牙未打开
-            mView.showToast("请打开蓝牙后重试");
-            SystemApplication.BLUETOOTH_STATUS = Constants.BLUE_TOOTH_IS_CLOSED;
-            mView.showFragment(BaseFragment.instance(mContext, NoBlueToothFragment.class));
-        } else {
-            CheckingFragment checkingFragment = BaseFragment.instance(mContext, CheckingFragment.class);
-            mView.showFragment(checkingFragment);
         }
+        if (!bluetoothAdapter.isEnabled()) {
+            //强制打开蓝牙
+            bluetoothAdapter.enable();
+        }
+
+        Flowable.create(new FlowableOnSubscribe<Boolean>() {
+            @Override
+            public void subscribe(FlowableEmitter<Boolean> e) throws Exception {
+                SystemClock.sleep(1000);
+                if (bluetoothAdapter.isEnabled()) {
+                    e.onNext(true);
+                } else {
+                    e.onNext(false);
+                }
+
+
+            }
+        }, BackpressureStrategy.BUFFER).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<Boolean>() {
+                    @Override
+                    public void onSubscribe(Subscription s) {
+                        s.request(Long.MAX_VALUE);
+                    }
+
+                    @Override
+                    public void onNext(Boolean aBoolean) {
+                        if (aBoolean) {
+                            CheckingFragment checkingFragment = BaseFragment.instance(mContext, CheckingFragment.class);
+                            mView.showFragment(checkingFragment);
+                        } else {
+                            mView.showToast("请打开蓝牙后重试");
+                            SystemApplication.BLUETOOTH_STATUS = Constants.BLUE_TOOTH_IS_CLOSED;
+                            mView.showFragment(BaseFragment.instance(mContext, NoBlueToothFragment.class));
+                        }
+
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+                        Log.e("TAG", "onError" + t.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 
     //点击左上角按钮

@@ -19,10 +19,10 @@
 
         <TextView
             android:layout_width="@dimen/m150dp"
-            android:layout_height="@dimen/m42dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/m44dp"
             android:gravity="center"
-            android:text="  您的爱车很健康,尚未发现任何问题"
+            android:text="未检测到异常，如车辆仍有问题，请点击“进一步检测”"
             android:textColor="@color/font_gray"
             android:textSize="@dimen/m18sp" />
 
@@ -44,7 +44,7 @@
                 android:layout_height="@dimen/m45dp"
                 android:layout_margin="@dimen/m10dp"
                 android:layout_weight="1"
-                android:text="详细检测" />
+                android:text="进一步检测" />
 
             <Button
                 android:id="@+id/btn_easy_destroy"

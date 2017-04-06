@@ -48,7 +48,11 @@ public class MainActivity extends BaseActivity implements MainActivityView, View
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //程序启动时，初始化系统配置
         mPresenter = new MainPresenter(this);
+
+        mPresenter.initSystemConfig();
+
         //初始化视图控件
         initView();
         //初始化控件的监听方法

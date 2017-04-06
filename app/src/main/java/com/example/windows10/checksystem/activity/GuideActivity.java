@@ -214,8 +214,7 @@ public class GuideActivity extends BaseActivity implements MapGuideView, AMapNav
 
     @Override
     public void onCalculateRouteFailure(int i) {
-        Log.e("TAG", "onCalculateRouteFailure" + i);
-
+        Toast.makeText(GuideActivity.this, "错误码：" + i + ",请重试", Toast.LENGTH_SHORT).show();
     }
 
     @Override

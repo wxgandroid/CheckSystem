@@ -17,6 +17,7 @@ import com.example.windows10.checksystem.constant.Constants;
 import com.example.windows10.checksystem.databinding.ActivityMusicePlayBinding;
 import com.example.windows10.checksystem.databinding.MusicPlayItemLayoutBinding;
 import com.example.windows10.rx_retrofit_library.CommonUtils;
+import com.example.windows10.rx_retrofit_library.RxUtils;
 import com.example.windows10.rx_retrofit_library.view.IOSLoadingDialog;
 
 import java.io.IOException;
@@ -87,20 +88,42 @@ public class MusicePlayActivity extends BaseActivity implements View.OnClickList
             mPlayer.setOnCompletionListener(this);
             mPlayer.setOnInfoListener(this);
             mPlayer.setOnErrorListener(this);
-
         }
         Log.e("TAG", "音频的地址为：" + SystemApplication.getInstance().getBASE_AUDIO_URL() + voiceAddress);
-        Uri uri = Uri.parse(SystemApplication.getInstance().getBASE_AUDIO_URL() + voiceAddress);
-        try {
-            if (mPlayer.isPlaying()) {
-                mPlayer.reset();
+        final Uri uri = Uri.parse(SystemApplication.getInstance().getBASE_AUDIO_URL() + voiceAddress);
+        RxUtils.getInstance().doInBackground(new RxUtils.BackgroundExcutors() {
+            @Override
+            public void doPrepare() {
+                if (mPlayer.isPlaying()) {
+                    mPlayer.reset();
+                }
+                try {
+                    mPlayer.setDataSource(MusicePlayActivity.this, uri);
+                    mPlayer.prepare();
+                    mPlayer.start();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
             }
-            mPlayer.setDataSource(this, uri);
-            mPlayer.prepare();
-            mPlayer.start();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+            @Override
+            public void doOnNext(Object value) {
+
+            }
+
+            @Override
+            public void doComplete() {
+
+            }
+
+            @Override
+            public void onError() {
+
+            }
+        });
+
+
     }
 
     @Override

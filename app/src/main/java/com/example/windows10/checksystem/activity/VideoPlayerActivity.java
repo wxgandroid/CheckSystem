@@ -12,6 +12,7 @@ import com.example.windows10.checksystem.bean.LingJianDetailsBean;
 import com.example.windows10.checksystem.constant.Constants;
 import com.example.windows10.checksystem.databinding.ActivityVideoPlayerBinding;
 import com.example.windows10.rx_retrofit_library.CommonUtils;
+import com.example.windows10.rx_retrofit_library.RxUtils;
 
 public class VideoPlayerActivity extends BaseActivity {
 
@@ -30,16 +31,39 @@ public class VideoPlayerActivity extends BaseActivity {
             finish();
             return;
         }
-        String url = SystemApplication.getInstance().getBASE_VIDEO_URL()+ videoBean.getVideoAddress();
+        final String url = SystemApplication.getInstance().getBASE_VIDEO_URL() + videoBean.getVideoAddress();
         if (CommonUtils.isEmpty(url)) {
             Toast.makeText(VideoPlayerActivity.this, "视频文件地址为空", Toast.LENGTH_SHORT).show();
             finish();
         }
         mPlayer = new PlayerView(this);
-        mPlayer.setTitle(videoBean.getVideoName())
-                .setPlaySource(url)
-                .setOnlyFullScreen(true)
-                .startPlay();
+
+        RxUtils.getInstance().doInBackground(new RxUtils.BackgroundExcutors() {
+            @Override
+            public void doPrepare() {
+                mPlayer.setTitle(videoBean.getVideoName())
+                        .setPlaySource(url)
+                        .setOnlyFullScreen(true)
+                        .startPlay();
+            }
+
+            @Override
+            public void doOnNext(Object value) {
+
+            }
+
+            @Override
+            public void doComplete() {
+
+            }
+
+            @Override
+            public void onError() {
+
+            }
+        });
+
+
     }
 
     @Override

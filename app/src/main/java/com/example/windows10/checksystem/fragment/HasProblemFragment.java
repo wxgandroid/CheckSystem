@@ -189,6 +189,7 @@ public class HasProblemFragment extends BaseFragment implements View.OnClickList
                     mIntent = new Intent();
                 }
                 mIntent.putExtra(Constants.INTENT_PARTS_ID, mList.get(mBinding.vpDestroyList.getCurrentItem()).getPartsId());
+                mIntent.putExtra(Constants.INTENT_SHOW_RECOMMEND, false);
                 CommonUtils.toOtherActivity((Activity) mContext, MapviewActivity.class, mIntent);
                 break;
             case R.id.iv_map_guide:
@@ -201,7 +202,7 @@ public class HasProblemFragment extends BaseFragment implements View.OnClickList
                 break;
             case R.id.iv_map_info:
                 dismissMarker();
-                mPresenter.toFactoryDetails(makerPosition, mList.get(mBinding.vpDestroyList.getCurrentItem()).getPartsId(),latitude,longitude);
+                mPresenter.toFactoryDetails(makerPosition, mList.get(mBinding.vpDestroyList.getCurrentItem()).getPartsId(), latitude, longitude);
                 break;
 
         }

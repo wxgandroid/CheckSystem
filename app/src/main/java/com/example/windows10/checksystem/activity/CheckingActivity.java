@@ -56,8 +56,8 @@ public class CheckingActivity extends BaseActivity implements CheckView, View.On
         mBinding.test4.setOnClickListener(this);
         mBinding.includeCheckingTop.ivTitleBack.setOnClickListener(this);
         //显示正在检测的页面
-        mPresenter.showFragment(Constants.FRAGMENT_NOPROBLEM);
-//        mPresenter.showFragment(Constants.FRAGMENT_CHECKING);
+//        mPresenter.showFragment(Constants.FRAGMENT_NOPROBLEM);
+        mPresenter.showFragment(Constants.FRAGMENT_CHECKING);
     }
 
 

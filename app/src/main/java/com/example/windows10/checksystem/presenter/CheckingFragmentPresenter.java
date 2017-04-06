@@ -35,12 +35,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
+import io.reactivex.BackpressureStrategy;
+import io.reactivex.Flowable;
+import io.reactivex.FlowableEmitter;
+import io.reactivex.FlowableOnSubscribe;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -141,26 +146,61 @@ public class CheckingFragmentPresenter extends CheckPresenter implements RxUtils
             String action = intent.getAction();
             //找到设备
             if (BluetoothDevice.ACTION_FOUND.equals(action)) {
-                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                final BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 if (device.getBondState() == BluetoothDevice.BOND_BONDED) {
-                    ParcelUuid[] uuids = device.getUuids();
-                    if (uuids != null) {
-                        try {
-                            clientSocket = device.createRfcommSocketToServiceRecord(UUID.fromString(Constants.DEVICE_UUID));
-                            clientSocket.connect();
-                            isBluetoothConnect = true;
-                            mView.updateStatus(mContext.getString(R.string.bluetooth_connect));
-                            SystemApplication.BLUETOOTH_STATUS = Constants.BLUE_TOOTH_CONNECT_SUCCESS;
-                            loadingProgress();
-                            //发送一个07
-                            loopForCheck();
-                        } catch (Exception e) {
-                            Log.e("TAG", "抛出异常了3" + e.getMessage());
-                            SystemApplication.BLUETOOTH_STATUS = Constants.BLUE_TOOTH_CONNECT_FAILED;
-                            mView.showFragment(BaseFragment.instance(mContext, NoBlueToothFragment.class));
-                            e.printStackTrace();
+                    final ParcelUuid[] uuids = device.getUuids();
+                    Flowable.create(new FlowableOnSubscribe<Boolean>() {
+                        @Override
+                        public void subscribe(FlowableEmitter<Boolean> e) throws Exception {
+                            if (uuids != null) {
+                                e.onNext(true);
+                            } else {
+                                e.onNext(false);
+                            }
                         }
-                    }
+                    }, BackpressureStrategy.BUFFER).subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe(new Consumer<Boolean>() {
+                                @Override
+                                public void accept(Boolean aBoolean) throws Exception {
+                                    if (aBoolean) {
+                                        clientSocket = device.createRfcommSocketToServiceRecord(UUID.fromString(Constants.DEVICE_UUID));
+                                        clientSocket.connect();
+                                        isBluetoothConnect = true;
+                                        mView.updateStatus(mContext.getString(R.string.bluetooth_connect));
+                                        SystemApplication.BLUETOOTH_STATUS = Constants.BLUE_TOOTH_CONNECT_SUCCESS;
+                                        loadingProgress();
+                                        //发送一个07
+                                        loopForCheck();
+                                    }
+                                }
+                            }, new Consumer<Throwable>() {
+                                @Override
+                                public void accept(Throwable e) throws Exception {
+                                    Log.e("TAG", "抛出异常了3" + e.getMessage());
+                                    SystemApplication.BLUETOOTH_STATUS = Constants.BLUE_TOOTH_CONNECT_FAILED;
+                                    mView.showFragment(BaseFragment.instance(mContext, NoBlueToothFragment.class));
+                                    e.printStackTrace();
+                                }
+                            });
+
+//                    if (uuids != null) {
+//                        try {
+//                            clientSocket = device.createRfcommSocketToServiceRecord(UUID.fromString(Constants.DEVICE_UUID));
+//                            clientSocket.connect();
+//                            isBluetoothConnect = true;
+//                            mView.updateStatus(mContext.getString(R.string.bluetooth_connect));
+//                            SystemApplication.BLUETOOTH_STATUS = Constants.BLUE_TOOTH_CONNECT_SUCCESS;
+//                            loadingProgress();
+//                            //发送一个07
+//                            loopForCheck();
+//                        } catch (Exception e) {
+//                            Log.e("TAG", "抛出异常了3" + e.getMessage());
+//                            SystemApplication.BLUETOOTH_STATUS = Constants.BLUE_TOOTH_CONNECT_FAILED;
+//                            mView.showFragment(BaseFragment.instance(mContext, NoBlueToothFragment.class));
+//                            e.printStackTrace();
+//                        }
+//                    }
                 }
             } else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
                 Log.e("TAG", "完成蓝牙搜索");
