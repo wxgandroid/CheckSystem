@@ -153,9 +153,10 @@ public class CheckingFragmentPresenter extends CheckPresenter implements RxUtils
                         @Override
                         public void subscribe(FlowableEmitter<Boolean> e) throws Exception {
                             if (uuids != null) {
+                                clientSocket = device.createRfcommSocketToServiceRecord(UUID.fromString(Constants.DEVICE_UUID));
+                                clientSocket.connect();
+                                isBluetoothConnect = true;
                                 e.onNext(true);
-                            } else {
-                                e.onNext(false);
                             }
                         }
                     }, BackpressureStrategy.BUFFER).subscribeOn(Schedulers.io())
@@ -164,9 +165,6 @@ public class CheckingFragmentPresenter extends CheckPresenter implements RxUtils
                                 @Override
                                 public void accept(Boolean aBoolean) throws Exception {
                                     if (aBoolean) {
-                                        clientSocket = device.createRfcommSocketToServiceRecord(UUID.fromString(Constants.DEVICE_UUID));
-                                        clientSocket.connect();
-                                        isBluetoothConnect = true;
                                         mView.updateStatus(mContext.getString(R.string.bluetooth_connect));
                                         SystemApplication.BLUETOOTH_STATUS = Constants.BLUE_TOOTH_CONNECT_SUCCESS;
                                         loadingProgress();
