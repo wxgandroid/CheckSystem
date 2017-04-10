@@ -42,7 +42,6 @@ public class MainActivity extends BaseActivity implements MainActivityView, View
     //游客登录的按钮
     private TextView tv_guist_entry;
     private IOSLoadingDialog mIosLoadingDialog;
-    private boolean isAotoLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,23 +49,12 @@ public class MainActivity extends BaseActivity implements MainActivityView, View
         setContentView(R.layout.activity_main);
         //程序启动时，初始化系统配置
         mPresenter = new MainPresenter(this);
-
         mPresenter.initSystemConfig();
 
         //初始化视图控件
         initView();
         //初始化控件的监听方法
         initListener();
-        //读取用户的账户和密码的缓存信息，缓存不为空直接进行登录
-//        String userName = CommonUtils.getStringExtras(this, Constants.USERINFO_PHONE);
-//        String password = CommonUtils.getStringExtras(this, Constants.USERINFO_PASSWORD);
-//        if (!CommonUtils.isEmpty(userName) && !CommonUtils.isEmpty(password)) {
-//            //自动登录，将页面设置为不可见
-//            mPresenter.login(userName, password);
-//            ll_main.setVisibility(View.GONE);
-//        } else {
-//            //不能自动登录，将页面设置为可见
-//        }
         ll_main.setVisibility(View.VISIBLE);
 
     }
@@ -123,8 +111,6 @@ public class MainActivity extends BaseActivity implements MainActivityView, View
         et_login_name.setText("");
         et_login_password.setText("");
         //将userName和password做缓存
-        CommonUtils.saveStringExtras(this, Constants.USERINFO_PHONE, userName);
-        CommonUtils.saveStringExtras(this, Constants.USERINFO_PASSWORD, password);
         CommonUtils.toOtherActivity(this, HomeActivity.class);
         finishPager();
     }

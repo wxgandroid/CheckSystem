@@ -116,7 +116,7 @@ public class MainPresenter extends BasePresenter implements RxUtils.LoadingNetDa
 
             @Override
             public void onError(String msg) {
-                mView.showToast("初始化系统配置失败，请重启应用" + msg);
+                mView.showToast("初始化系统配置失败，查看ip设置是否正确" + msg);
             }
 
             @Override
