@@ -126,17 +126,17 @@ public class CheckPresenter extends BasePresenter {
                 });
     }
 
-    //点击左上角按钮
-    public void clickTopLeft(BaseFragment fragment) {
-        switch (getPagerType(fragment)) {
-            case Constants.FRAGMENT_HASPROBLEM:
-                mView.showList();
-                break;
-            default:
-                mView.finishPager();
-                break;
-        }
-    }
+//    //点击左上角按钮
+//    public void clickTopLeft(BaseFragment fragment) {
+//        switch (getPagerType(fragment)) {
+//            case Constants.FRAGMENT_HASPROBLEM:
+//                mView.showList();
+//                break;
+//            default:
+//                mView.finishPager();
+//                break;
+//        }
+//    }
 
     public int getPagerType(BaseFragment fragment) {
         if (fragment instanceof CheckingFragment) {

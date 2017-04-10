@@ -1,7 +1,6 @@
 package com.example.windows10.checksystem.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
@@ -26,12 +25,10 @@ public class HomeReyclerViewAdapter extends RecyclerView.Adapter<HomeReyclerView
 
     private Context mContext;
     private ArrayList<String> mData;
-    private Intent mIntent;
 
     public HomeReyclerViewAdapter(Context context) {
         mData = new ArrayList<>();
         mContext = context;
-        mIntent = new Intent();
     }
 
 
